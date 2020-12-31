@@ -1,5 +1,9 @@
 package com.example.coffeeture.DrinkClass;
 
+import com.example.coffeeture.Enums.AromaProfile;
+import com.example.coffeeture.Enums.TemperatureOfDrink;
+import com.example.coffeeture.Enums.WhatFirst;
+
 public class Latte {
 
     private int amountOfMilkFoam = 50;
@@ -7,14 +11,8 @@ public class Latte {
     private int amountOfCoffee = 100;
     private String name = "Latte";
     private final String type = "Latte";
-    private enum aromaProfile{
-        DYNAMIC,STATIC,INTENSE
-    }
-    private enum temperatureOfDrink{
-        NORMAL,WARM,HOT
-    }
-    private enum whatFirst{
-        MILK,COFFEE
-    }
+    private Enum whatFirst = WhatFirst.MILK;
+    private Enum aromaProfile = AromaProfile.INTENSE;
+    private Enum temperatureOfDrink = TemperatureOfDrink.WARM;
 
 }
