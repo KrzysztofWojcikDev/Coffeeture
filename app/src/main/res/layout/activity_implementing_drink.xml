@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.ImplementingDrinkActivity">
+
+    <include
+        android:id="@+id/toolbar_main"
+        layout="@layout/toolbar"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_how_much_milk_foam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="60dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_main" />
+
+    <TextView
+        android:id="@+id/textView_how_much_milk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_how_much_milk_foam" />
+
+    <TextView
+        android:id="@+id/textView_how_much_coffee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="32dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_how_much_milk" />
+
+    <TextView
+        android:id="@+id/textView_aroma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="216dp"
+        android:layout_marginLeft="216dp"
+        android:layout_marginTop="68dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/textView_how_much_milk_foam"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_main" />
+
+    <TextView
+        android:id="@+id/textView_temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="216dp"
+        android:layout_marginLeft="216dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/textView_how_much_milk"
+        app:layout_constraintTop_toBottomOf="@+id/textView_aroma" />
+
+    <TextView
+        android:id="@+id/textView_what_first"
+        android:layout_width="61dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginLeft="216dp"
+        android:layout_marginTop="32dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/textView_how_much_coffee"
+        app:layout_constraintTop_toBottomOf="@+id/textView_temperature" />
+
+    <TextView
+        android:id="@+id/textView_cups_quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="180dp"
+        android:layout_marginLeft="180dp"
+        android:layout_marginTop="76dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/textView_aroma"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_main" />
+
+    <TextView
+        android:id="@+id/textView_how_much_hot_water"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="56dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_how_much_coffee" />
+
+    <TextView
+        android:id="@+id/textView_aroma_beans"
+        android:layout_width="121dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="248dp"
+        app:layout_constraintStart_toEndOf="@+id/textView_how_much_hot_water"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_temp"
+        android:layout_width="51dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="240dp"
+        app:layout_constraintStart_toEndOf="@+id/textView_aroma_beans"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
