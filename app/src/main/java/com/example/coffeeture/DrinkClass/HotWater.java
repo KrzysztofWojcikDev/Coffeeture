@@ -1,12 +1,55 @@
 package com.example.coffeeture.DrinkClass;
 
+import com.example.coffeeture.Enums.AromaProfile;
+import com.example.coffeeture.Enums.CupsQuantity;
 import com.example.coffeeture.Enums.TemperatureOfDrink;
+import com.example.coffeeture.Enums.WhatFirst;
 
-public class HotWater {
-
-    private int amountOfHotWater = 150;
-    private String name = "Hot Water";
+public final class HotWater extends Drink {
+    private final int amountOfMilkFoam = 0;
+    private final int amountOfMilk = 0;
+    private final int amountOfCoffee = 0;
+    private final Enum whatFirst = WhatFirst.VOID;
+    private final Enum cupsQuantity = CupsQuantity.VOID;
+    private final Enum aromaProfile = AromaProfile.VOID;
     private final String type = "Hot Water";
-    private Enum temperatureOfDrink = TemperatureOfDrink.WARM;
 
+    private int amountOfHotWater;
+    private String name;
+    private Enum temperatureOfDrink;
+
+
+    private HotWater(Builder builder){
+    this.amountOfHotWater = builder.amountOfHotWater;
+    this.name = builder.name;
+    this.temperatureOfDrink = builder.temperatureOfDrink;
+
+    }
+
+    public static class Builder extends Drink.Builder{
+
+        //default values in case when the client will initiate an Coffee object without called set methods
+        private int amountOfHotWater = 150;
+        private String name = "Hot Water";
+        private Enum temperatureOfDrink = TemperatureOfDrink.WARM;
+
+        //set method available for the client
+        public Builder setAmountOfHotWater(int amountOfHotWater){
+            this.amountOfHotWater = amountOfHotWater;
+            return this;
+        }
+        public Builder setNameOfDrink(String name){
+            this.name = name;
+            return this;
+        }
+        public Builder setTemperatureOfDrink(TemperatureOfDrink temperatureOfDrink){
+            this.temperatureOfDrink = temperatureOfDrink;
+            return this;
+        }
+
+        @Override
+        public HotWater build() {
+            return new HotWater(this);
+        }
+    }
 }
