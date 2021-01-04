@@ -1,5 +1,6 @@
 package com.example.coffeeture.ViewModels;
 
+<<<<<<< HEAD
 
 import android.widget.ImageView;
 
@@ -206,3 +207,7 @@ public class ViewModelSettingDrink<T extends Drink>  extends ViewModel {
 
     }
 */
+=======
+public class ViewModelSettingDrink {
+}
+>>>>>>> 825079d4b611db42f85afc30ccf6928bba2eaa52
