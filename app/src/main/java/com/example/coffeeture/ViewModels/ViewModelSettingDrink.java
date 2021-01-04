@@ -1,6 +1,10 @@
 package com.example.coffeeture.ViewModels;
 
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+>>>>>>> 5306049562a0ae769312798ae45e41df857d77f4
 
 import android.widget.ImageView;
 
@@ -207,3 +211,10 @@ public class ViewModelSettingDrink<T extends Drink>  extends ViewModel {
 
     }
 */
+<<<<<<< HEAD
+=======
+=======
+public class ViewModelSettingDrink {
+}
+>>>>>>> 825079d4b611db42f85afc30ccf6928bba2eaa52
+>>>>>>> 5306049562a0ae769312798ae45e41df857d77f4
