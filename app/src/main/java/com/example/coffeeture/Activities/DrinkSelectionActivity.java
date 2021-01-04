@@ -3,22 +3,13 @@ package com.example.coffeeture.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 825079d4b611db42f85afc30ccf6928bba2eaa52
-import android.os.Bundle;
-
-import com.example.coffeeture.Presenters.PresenterToolbar;
-import com.example.coffeeture.R;
-import com.example.coffeeture.ViewModels.ViewModelToolbar;
-
-<<<<<<< HEAD
 
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
@@ -30,9 +21,12 @@ import com.example.coffeeture.DrinkClass.HotWater;
 import com.example.coffeeture.DrinkClass.Latte;
 import com.example.coffeeture.DrinkClass.Milk;
 import com.example.coffeeture.Presenters.PresenterSettingDrink;
+import com.example.coffeeture.Presenters.PresenterToolbar;
+import com.example.coffeeture.R;
+import com.example.coffeeture.ViewModels.ViewModelToolbar;
 
 
-    public class DrinkSelectionActivity extends AppCompatActivity implements View.OnClickListener {
+public class DrinkSelectionActivity extends AppCompatActivity implements View.OnClickListener {
 
 
         ViewModelToolbar viewModelToolbar;
@@ -196,27 +190,7 @@ import com.example.coffeeture.Presenters.PresenterSettingDrink;
 
         }
 
-=======
-public class DrinkSelectionActivity extends AppCompatActivity {
 
-
-    ViewModelToolbar viewModelToolbar;
-    PresenterToolbar presenterToolbar;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_drink_selection);
-
-        viewModelToolbar = ViewModelProviders.of(DrinkSelectionActivity.this).get(ViewModelToolbar.class);
-        viewModelToolbar = new ViewModelToolbar.ToolbarBuilder()
-                .setHeadline("Choose your drink")
-                .setVisibilityForBackButton(false)
-                .setVisibilityForOptionsButton(true)
-                .setVisibilityForRinseButton(false)
-                .build();
-
-        presenterToolbar = new PresenterToolbar(viewModelToolbar);
->>>>>>> 825079d4b611db42f85afc30ccf6928bba2eaa52
 
     }
 
