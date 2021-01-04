@@ -1,14 +1,17 @@
 package com.example.coffeeture.ViewModels;
 
+
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class ViewModelToolbar extends ViewModel {
 
-    private MutableLiveData<String>headline;
+
+    private final LiveData<String> headline;
+    private final LiveData<Boolean>visibilityForOptionsButton;
+    private final LiveData<Boolean>visibilityForBackButton;
     private MutableLiveData<Boolean>visibilityForRinseButton;
-    private MutableLiveData<Boolean>visibilityForOptionsButton;
-    private MutableLiveData<Boolean>visibilityForBackButton;
 
     public static class ToolbarBuilder{
         String headline = "default headline";
@@ -39,13 +42,14 @@ public class ViewModelToolbar extends ViewModel {
     }
 
     private ViewModelToolbar(ToolbarBuilder toolbarBuilder){
-        this.headline.setValue(toolbarBuilder.headline);
-        this.visibilityForRinseButton.setValue(toolbarBuilder.visibilityForRinseButton);
-        this.visibilityForOptionsButton.setValue(toolbarBuilder.visibilityForOptionsButton);
-        this.visibilityForBackButton.setValue(toolbarBuilder.visibilityForBackButton);
+
+        this.headline = new MutableLiveData<>(toolbarBuilder.headline);
+        this.visibilityForRinseButton = new MutableLiveData<>(toolbarBuilder.visibilityForRinseButton);
+        this.visibilityForOptionsButton = new MutableLiveData<>(toolbarBuilder.visibilityForOptionsButton);
+        this.visibilityForBackButton = new MutableLiveData<>(toolbarBuilder.visibilityForBackButton);
     }
 
-    public MutableLiveData<String> getHeadline() {
+    public LiveData<String> getHeadline() {
         return headline;
     }
 
@@ -53,11 +57,16 @@ public class ViewModelToolbar extends ViewModel {
         return visibilityForRinseButton;
     }
 
-    public MutableLiveData<Boolean> getVisibilityForOptionsButton() {
+    public LiveData<Boolean> getVisibilityForOptionsButton() {
         return visibilityForOptionsButton;
     }
 
-    public MutableLiveData<Boolean> getVisibilityForBackButton() {
+    public LiveData<Boolean> getVisibilityForBackButton() {
         return visibilityForBackButton;
     }
+
+    public void setVisibilityForRinseButton(boolean state){
+        this.visibilityForRinseButton.setValue(state);
+    }
+
 }

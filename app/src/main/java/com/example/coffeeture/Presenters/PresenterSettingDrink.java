@@ -1,17 +1,27 @@
 package com.example.coffeeture.Presenters;
 
+import com.example.coffeeture.DrinkClass.Drink;
 import com.example.coffeeture.ViewModels.ViewModelSettingDrink;
 import com.example.coffeeture.ViewModels.ViewModelToolbar;
 
-public class PresenterSettingDrink <T>{
+import java.io.Serializable;
+
+public class PresenterSettingDrink <T extends Drink> implements Serializable {
+
     private ViewModelSettingDrink viewModelSettingDrink;
     private ViewModelToolbar viewModelToolbar;
-    private T drink ;
+    private final T DRINK ;
 
-    public PresenterSettingDrink(ViewModelSettingDrink viewModelSettingDrink,ViewModelToolbar viewModelToolbar,T drink){
+    public PresenterSettingDrink(T drink){
+        this.DRINK = drink;
+        this.viewModelSettingDrink = new ViewModelSettingDrink(drink);
+        this.viewModelToolbar = new ViewModelToolbar.ToolbarBuilder().setHeadline(drink.getName()).build();
 
-        this.viewModelSettingDrink = viewModelSettingDrink;
-        this.viewModelToolbar = viewModelToolbar;
-        this.drink = drink;
+
+
     }
+
+    public ViewModelSettingDrink getViewModelSettingDrink() { return this.viewModelSettingDrink;}
+    public ViewModelToolbar getViewModelToolbar() { return this.viewModelToolbar; }
+
 }
