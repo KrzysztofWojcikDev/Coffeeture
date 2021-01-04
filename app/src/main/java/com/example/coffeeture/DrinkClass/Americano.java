@@ -1,9 +1,12 @@
 package com.example.coffeeture.DrinkClass;
 
+import android.widget.ImageView;
+
 import com.example.coffeeture.Enums.AromaProfile;
 import com.example.coffeeture.Enums.CupsQuantity;
 import com.example.coffeeture.Enums.TemperatureOfDrink;
 import com.example.coffeeture.Enums.WhatFirst;
+import com.example.coffeeture.R;
 
 public final class Americano extends Drink{
 
@@ -11,6 +14,9 @@ public final class Americano extends Drink{
     private final int amountOfMilkFoam = 0;
     private final Enum cupsQuantity = CupsQuantity.VOID;
     private final String type = "Americano";
+    private final int imageResourceId = R.id.imageViewAmericano;
+
+
 
     private int amountOfCoffee;
     private int amountOfHotWater;
@@ -20,6 +26,7 @@ public final class Americano extends Drink{
     private Enum temperatureOfDrink;
 
     private Americano(Builder builder){
+
         this.amountOfCoffee = builder.amountOfCoffee;
         this.amountOfHotWater = builder.amountOfHotWater;
         this.name = builder.name;
@@ -27,7 +34,59 @@ public final class Americano extends Drink{
         this.aromaProfile = builder.aromaProfile;
         this.temperatureOfDrink = builder.temperatureOfDrink;
 
+
     }
+
+    @Override
+    public int getAmountOfMilkFoam() {
+        return amountOfMilkFoam;
+    }
+
+    @Override
+    public int getAmountOfMilk() {
+       return amountOfMilk;
+    }
+
+    @Override
+    public int getAmountOfCoffee() {
+        return amountOfCoffee;
+    }
+
+    @Override
+    public int getAmountOfHotWater() {
+        return amountOfHotWater;
+    }
+
+    @Override
+    public String getType() {
+        return type;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public Enum getWhatFirst() {
+        return whatFirst;
+    }
+
+    @Override
+    public Enum getCupsQuantity() {
+        return cupsQuantity;
+    }
+
+    @Override
+    public Enum getAromaProfile() {
+        return aromaProfile;
+    }
+
+    @Override
+    public Enum getTemperatureOfDrink() {
+        return temperatureOfDrink;
+    }
+
     public static class Builder extends Drink.Builder{
 
         //default values in case when the client will initiate an Coffee object without called set methods

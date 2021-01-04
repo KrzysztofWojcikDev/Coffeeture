@@ -4,6 +4,7 @@ import com.example.coffeeture.Enums.AromaProfile;
 import com.example.coffeeture.Enums.CupsQuantity;
 import com.example.coffeeture.Enums.TemperatureOfDrink;
 import com.example.coffeeture.Enums.WhatFirst;
+import com.example.coffeeture.R;
 
 public final class Ristretto extends Drink{
     private final int amountOfMilkFoam = 0;
@@ -11,6 +12,7 @@ public final class Ristretto extends Drink{
     private final int amountOfHotWater = 0;
     private final Enum whatFirst = WhatFirst.VOID;
     private final String type = "Ristretto";
+    private final int imageResourceId = R.id.imageViewRistretto;
 
     private int amountOfCoffee;
     private String name;
@@ -25,6 +27,57 @@ public final class Ristretto extends Drink{
         this.aromaProfile = builder.aromaProfile;
         this.temperatureOfDrink = builder.temperatureOfDrink;
     }
+
+    @Override
+    public int getAmountOfMilkFoam() {
+        return amountOfMilkFoam;
+    }
+
+    @Override
+    public int getAmountOfMilk() {
+        return amountOfMilk;
+    }
+
+    @Override
+    public int getAmountOfCoffee() {
+        return amountOfCoffee;
+    }
+
+    @Override
+    public int getAmountOfHotWater() {
+        return amountOfHotWater;
+    }
+
+    @Override
+    public String getType() {
+        return type;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public Enum getWhatFirst() {
+        return whatFirst;
+    }
+
+    @Override
+    public Enum getCupsQuantity() {
+        return cupsQuantity;
+    }
+
+    @Override
+    public Enum getAromaProfile() {
+        return aromaProfile;
+    }
+
+    @Override
+    public Enum getTemperatureOfDrink() {
+        return temperatureOfDrink;
+    }
+
 
     public static class Builder extends Drink.Builder{
 
