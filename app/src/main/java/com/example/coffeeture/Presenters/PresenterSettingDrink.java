@@ -1,5 +1,6 @@
 package com.example.coffeeture.Presenters;
 
+
 import com.example.coffeeture.DrinkClass.Drink;
 import com.example.coffeeture.ViewModels.ViewModelSettingDrink;
 import com.example.coffeeture.ViewModels.ViewModelToolbar;
@@ -23,5 +24,6 @@ public class PresenterSettingDrink <T extends Drink> implements Serializable {
 
     public ViewModelSettingDrink getViewModelSettingDrink() { return this.viewModelSettingDrink;}
     public ViewModelToolbar getViewModelToolbar() { return this.viewModelToolbar; }
+
 
 }

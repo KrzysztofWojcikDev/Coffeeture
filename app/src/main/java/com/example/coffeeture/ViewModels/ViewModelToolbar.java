@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel;
 public class ViewModelToolbar extends ViewModel {
 
 
+
     private final LiveData<String> headline;
     private final LiveData<Boolean>visibilityForOptionsButton;
     private final LiveData<Boolean>visibilityForBackButton;
@@ -49,13 +50,8 @@ public class ViewModelToolbar extends ViewModel {
         this.visibilityForBackButton = new MutableLiveData<>(toolbarBuilder.visibilityForBackButton);
     }
 
-    public LiveData<String> getHeadline() {
-        return headline;
-    }
 
-    public MutableLiveData<Boolean> getVisibilityForRinseButton() {
-        return visibilityForRinseButton;
-    }
+    public LiveData<String> getHeadline() { return this.headline; }
 
     public LiveData<Boolean> getVisibilityForOptionsButton() {
         return visibilityForOptionsButton;
@@ -68,5 +64,7 @@ public class ViewModelToolbar extends ViewModel {
     public void setVisibilityForRinseButton(boolean state){
         this.visibilityForRinseButton.setValue(state);
     }
+
+
 
 }

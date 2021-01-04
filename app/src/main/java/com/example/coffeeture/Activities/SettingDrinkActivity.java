@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
-<<<<<<< Updated upstream
+
 
 import com.example.coffeeture.R;
 
@@ -20,14 +20,17 @@ public class SettingDrinkActivity extends AppCompatActivity {
 
     ViewModelToolbar viewModelToolbar;
 
+
     ViewModelSettingDrink viewModelSettingDrink;
     PresenterSettingDrink<?>presenterSettingDrink;
     ImageView drinkImageView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_drink);
+
 
         presenterSettingDrink = (PresenterSettingDrink<?>) getIntent().getSerializableExtra("presenter");
         viewModelSettingDrink = presenterSettingDrink.getViewModelSettingDrink();

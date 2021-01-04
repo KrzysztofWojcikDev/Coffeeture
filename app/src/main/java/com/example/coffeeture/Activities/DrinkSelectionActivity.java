@@ -4,17 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 
 
-import android.os.Bundle;
-
-import com.example.coffeeture.Presenters.PresenterToolbar;
-import com.example.coffeeture.R;
-import com.example.coffeeture.ViewModels.ViewModelToolbar;
-
-
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
@@ -26,86 +20,67 @@ import com.example.coffeeture.DrinkClass.HotWater;
 import com.example.coffeeture.DrinkClass.Latte;
 import com.example.coffeeture.DrinkClass.Milk;
 import com.example.coffeeture.Presenters.PresenterSettingDrink;
+import com.example.coffeeture.R;
+import com.example.coffeeture.ViewModels.ViewModelToolbar;
 
 
-    public class DrinkSelectionActivity extends AppCompatActivity implements View.OnClickListener {
+public class DrinkSelectionActivity extends AppCompatActivity implements View.OnClickListener {
 
 
-        ViewModelToolbar viewModelToolbar;
-        PresenterSettingDrink<?> presenterSettingDrink;
-        // PresenterToolbar presenterToolbar;
-        Button button_options;
-        Button button_rinse;
+    ViewModelToolbar viewModelToolbar;
+    PresenterSettingDrink<?> presenterSettingDrink;
+    // PresenterToolbar presenterToolbar;
+    Button button_options;
+    Button button_rinse;
 
-        Button button_small_coffee;
-        Button button_coffee;
-        Button button_americano;
-        Button button_cappuccino;
-        Button button_cafe_late;
-        Button button_latte;
-        Button button_milk;
-        Button button_favorite;
-        Button button_hot_water;
+    Button button_small_coffee;
+    Button button_coffee;
+    Button button_americano;
+    Button button_cappuccino;
+    Button button_cafe_late;
+    Button button_latte;
+    Button button_milk;
+    Button button_favorite;
+    Button button_hot_water;
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_drink_selection);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_drink_selection);
 
-            viewModelToolbar = ViewModelProviders.of(DrinkSelectionActivity.this).get(ViewModelToolbar.class);
-            viewModelToolbar = new ViewModelToolbar.ToolbarBuilder()
-                    .setHeadline("Choose your drink")
-                    .setVisibilityForBackButton(false)
-                    .setVisibilityForOptionsButton(true)
-                    .setVisibilityForRinseButton(false)
-                    .build();
+        viewModelToolbar = ViewModelProviders.of(DrinkSelectionActivity.this).get(ViewModelToolbar.class);
+        viewModelToolbar = new ViewModelToolbar.ToolbarBuilder()
+                .setHeadline("Choose your drink")
+                .setVisibilityForBackButton(false)
+                .setVisibilityForOptionsButton(true)
+                .setVisibilityForRinseButton(false)
+                .build();
 
-            presenterToolbar = new PresenterToolbar(viewModelToolbar);
 
-        }
+
 
         // presenterToolbar = new PresenterToolbar(viewModelToolbar);
         button_options = findViewById(R.id.button_options);
 
+        button_rinse = findViewById(R.id.button_rinse);
 
+        button_small_coffee = findViewById(R.id.first_recipe_button);
 
-        button_rinse =findViewById(R.id.button_rinse);
+        button_coffee = findViewById(R.id.second_recipe_button);
 
-        button_small_coffee =
+        button_americano = findViewById(R.id.third_recipe_button);
 
-        findViewById(R.id.first_recipe_button);
+        button_cappuccino = findViewById(R.id.fourth_recipe_button);
 
-        button_coffee =
+        button_cafe_late = findViewById(R.id.fift_recipe_button);
 
-        findViewById(R.id.second_recipe_button);
+        button_latte = findViewById(R.id.sixth_recipe_button);
 
-        button_americano =
+        button_milk = findViewById(R.id.seventh_recipe_button);
 
-        findViewById(R.id.third_recipe_button);
+        button_favorite = findViewById(R.id.eighth_recipe_button);
 
-        button_cappuccino =
-
-        findViewById(R.id.fourth_recipe_button);
-
-        button_cafe_late =
-
-        findViewById(R.id.fift_recipe_button);
-
-        button_latte =
-
-        findViewById(R.id.sixth_recipe_button);
-
-        button_milk =
-
-        findViewById(R.id.seventh_recipe_button);
-
-        button_favorite =
-
-        findViewById(R.id.eighth_recipe_button);
-
-        button_hot_water =
-
-        findViewById(R.id.ninth_recipe_button);
+        button_hot_water = findViewById(R.id.ninth_recipe_button);
 
         button_options.setOnClickListener(this);
         button_rinse.setOnClickListener(this);
@@ -138,7 +113,7 @@ import com.example.coffeeture.Presenters.PresenterSettingDrink;
                 Intent intentCoffee = new Intent(DrinkSelectionActivity.this, SettingDrinkActivity.class);
                 Coffee coffee = new Coffee.Builder().build();
                 presenterSettingDrink = new PresenterSettingDrink<>(coffee);
-                presenterSettingDrink.activityStarter(presenterSettingDrink, intentCoffee);
+                activityStarter(presenterSettingDrink, intentCoffee);
                 break;
             case R.id.third_recipe_button:
                 Intent intentAmericano = new Intent(DrinkSelectionActivity.this, SettingDrinkActivity.class);
@@ -192,7 +167,5 @@ import com.example.coffeeture.Presenters.PresenterSettingDrink;
 
         }
 
-
     }
-
 }

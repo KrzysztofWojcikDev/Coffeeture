@@ -160,11 +160,15 @@
                 app:srcCompat="@drawable/americano_image" />
 
             <ImageView
+<<<<<<< HEAD
 <<<<<<< Updated upstream
                 android:id="@+id/imageViewCoappuccino"
 =======
                 android:id="@+id/imageViewCappuccino"
 >>>>>>> Stashed changes
+=======
+                android:id="@+id/imageViewCoappuccino"
+>>>>>>> 825079d (Add activities and XML resources)
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginStart="88dp"
