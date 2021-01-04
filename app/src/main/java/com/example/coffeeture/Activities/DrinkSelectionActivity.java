@@ -3,6 +3,10 @@ package com.example.coffeeture.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5306049 (Trash commit)
 
 
 import android.annotation.SuppressLint;
@@ -20,6 +24,10 @@ import com.example.coffeeture.DrinkClass.HotWater;
 import com.example.coffeeture.DrinkClass.Latte;
 import com.example.coffeeture.DrinkClass.Milk;
 import com.example.coffeeture.Presenters.PresenterSettingDrink;
+<<<<<<< HEAD
+=======
+import com.example.coffeeture.Presenters.PresenterToolbar;
+>>>>>>> 5306049 (Trash commit)
 import com.example.coffeeture.R;
 import com.example.coffeeture.ViewModels.ViewModelToolbar;
 
@@ -167,5 +175,10 @@ public class DrinkSelectionActivity extends AppCompatActivity implements View.On
 
         }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 5306049 (Trash commit)
     }
 }
