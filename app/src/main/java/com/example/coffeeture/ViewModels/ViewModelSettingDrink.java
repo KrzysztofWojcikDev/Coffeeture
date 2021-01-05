@@ -1,21 +1,12 @@
 package com.example.coffeeture.ViewModels;
 
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
->>>>>>> 5306049562a0ae769312798ae45e41df857d77f4
-
 import android.widget.ImageView;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-
 import com.example.coffeeture.DrinkClass.Drink;
 import com.example.coffeeture.Enums.AromaProfile;
 import com.example.coffeeture.Enums.CupsQuantity;
-import com.example.coffeeture.Enums.TemperatureOfDrink;
 import com.example.coffeeture.Enums.WhatFirst;
 
 public class ViewModelSettingDrink<T extends Drink>  extends ViewModel {
@@ -31,7 +22,7 @@ public class ViewModelSettingDrink<T extends Drink>  extends ViewModel {
     private final LiveData<Boolean> visionForLinearLayoutAmountOfCoffee;
     private final LiveData<Boolean> visionForLinearLayoutAmountOfHotWater;
 
-    private final LiveData<ImageView> visionForMainDrinkImage;
+    private final LiveData<Integer> visionForMainDrinkImage;
 
     private final LiveData<Boolean> visionForConstraintLayoutAroma;
     private final LiveData<Boolean> visionForConstraintLayoutTemperature;
@@ -110,7 +101,7 @@ public class ViewModelSettingDrink<T extends Drink>  extends ViewModel {
             this.visionForConstraintLayoutQuantity = new MutableLiveData<>(true);
             this.contentForConstraintLayoutQuantity = new MutableLiveData<>(drink.getCupsQuantity());
         }
-
+        this.visionForMainDrinkImage = new MutableLiveData<>(drink.)
 
     }
 }
@@ -211,10 +202,3 @@ public class ViewModelSettingDrink<T extends Drink>  extends ViewModel {
 
     }
 */
-<<<<<<< HEAD
-=======
-=======
-public class ViewModelSettingDrink {
-}
->>>>>>> 825079d4b611db42f85afc30ccf6928bba2eaa52
->>>>>>> 5306049562a0ae769312798ae45e41df857d77f4

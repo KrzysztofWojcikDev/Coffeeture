@@ -8,7 +8,6 @@ public abstract class Drink {
      }
     public abstract int getAmountOfMilkFoam();
 
-<<<<<<< HEAD
     public abstract int getAmountOfMilk();
 
     public abstract int getAmountOfHotWater();
@@ -27,6 +26,6 @@ public abstract class Drink {
 
     public abstract Enum getTemperatureOfDrink();
 
-=======
->>>>>>> 5306049562a0ae769312798ae45e41df857d77f4
+    public abstract int getImageResourceId();
+
 }

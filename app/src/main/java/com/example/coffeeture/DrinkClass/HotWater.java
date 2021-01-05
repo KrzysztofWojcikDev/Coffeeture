@@ -79,6 +79,10 @@ public final class HotWater extends Drink {
         return temperatureOfDrink;
     }
 
+    @Override
+    public int getImageResourceId() {
+        return imageResourceId;
+    }
     public static class Builder extends Drink.Builder{
 
         //default values in case when the client will initiate an Coffee object without called set methods
