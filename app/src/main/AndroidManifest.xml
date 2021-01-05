@@ -19,8 +19,10 @@
             android:parentActivityName=".Activities.DrinkSelectionActivity"/>
         <activity android:name=".Activities.SettingDrinkActivity"
             android:parentActivityName=".Activities.DrinkSelectionActivity"/>
-        <activity android:name=".Activities.ImplementingDrinkActivity" />
-        <activity android:name=".Activities.AnnouncementActivity" />
+        <activity android:name=".Activities.ImplementingDrinkActivity"
+            android:parentActivityName=".Activities.DrinkSelectionActivity"/>
+        <activity android:name=".Activities.AnnouncementActivity"
+            android:parentActivityName=".Activities.DrinkSelectionActivity"/>
         <activity android:name=".Activities.DrinkSelectionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

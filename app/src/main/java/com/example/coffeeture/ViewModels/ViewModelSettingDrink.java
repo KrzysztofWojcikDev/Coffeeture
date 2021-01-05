@@ -1,5 +1,7 @@
 package com.example.coffeeture.ViewModels;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.widget.ImageView;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -9,7 +11,9 @@ import com.example.coffeeture.Enums.AromaProfile;
 import com.example.coffeeture.Enums.CupsQuantity;
 import com.example.coffeeture.Enums.WhatFirst;
 
-public class ViewModelSettingDrink<T extends Drink>  extends ViewModel {
+import java.io.Serializable;
+
+    public class ViewModelSettingDrink<T extends Drink>  extends ViewModel implements Parcelable {
 
 
     private MutableLiveData<Integer> contentForEditTextAmountOfMilkFoam;
@@ -34,21 +38,26 @@ public class ViewModelSettingDrink<T extends Drink>  extends ViewModel {
     private MutableLiveData<Enum> contentForConstraintLayoutWhatFirst;
     private MutableLiveData<Enum> contentForConstraintLayoutQuantity;
 
-    private final LiveData<Boolean> visionForButtonStartImplementing;
-    private MutableLiveData<Boolean> visionForButtonCreateYourOwn;
+    private final LiveData<Boolean> visionForButtonStartImplementing;//this parameter is always true
+    private MutableLiveData<Boolean> visionForButtonCreateYourOwn;//this parameter is possible to change by setter
     private final LiveData<Boolean> visionForButtonAddToFavorite;
-
-    /*
-        private final LiveData<Boolean>visionForButtonStartImplementing;
-        MutableLiveData<Boolean>visionForButtonCreateYourOwn;
+    private final LiveData<Boolean> visionForButtonDeleteFavoriteRecipe;
+    private MutableLiveData<Boolean>visionForButtonUpdateFavoriteRecipe;//this parameter is possible to change by seTTER
 
 
-        MutableLiveData<Boolean>visionForButtonAddToFavorite = new MutableLiveData<>();
-        MutableLiveData<Boolean>visionForButtonDeleteFavoriteRecipe= new MutableLiveData<>();
-        MutableLiveData<Boolean>visionForButtonUpdateFavoriteRecipe= new MutableLiveData<>();
 
-    */
     public ViewModelSettingDrink(T drink) {
+
+
+        this.visionForMainDrinkImage = new MutableLiveData<>(drink.getImageResourceId());
+        this.visionForButtonStartImplementing = new MutableLiveData<>(true);
+        this.visionForButtonAddToFavorite = new MutableLiveData<>(drink.getType().equals(drink.getName()));
+        this.visionForButtonDeleteFavoriteRecipe = new MutableLiveData<>(!drink.getType().equals(drink.getName()));
+
+
+        this.visionForButtonCreateYourOwn = new MutableLiveData<>(true);
+        this.visionForButtonUpdateFavoriteRecipe = new MutableLiveData<>(true);
+
         if (drink.getAmountOfMilkFoam() == 0)
             this.visionForLinearLayoutAmountOfMilkFoam = new MutableLiveData<>(false);
         else {
@@ -101,10 +110,154 @@ public class ViewModelSettingDrink<T extends Drink>  extends ViewModel {
             this.visionForConstraintLayoutQuantity = new MutableLiveData<>(true);
             this.contentForConstraintLayoutQuantity = new MutableLiveData<>(drink.getCupsQuantity());
         }
-        this.visionForMainDrinkImage = new MutableLiveData<>(drink.)
 
     }
-}
+
+    public MutableLiveData<Integer> getContentForEditTextAmountOfMilkFoam() {
+        return contentForEditTextAmountOfMilkFoam;
+    }
+
+    public MutableLiveData<Integer> getContentForEditTextAmountOfMilk() {
+        return contentForEditTextAmountOfMilk;
+    }
+
+    public MutableLiveData<Integer> getContentForEditTextAmountOfCoffee() {
+        return contentForEditTextAmountOfCoffee;
+    }
+
+    public MutableLiveData<Integer> getContentForEditTextAmountOfHotWater() {
+        return contentForEditTextAmountOfHotWater;
+    }
+
+    public LiveData<Boolean> getVisionForLinearLayoutAmountOfMilkFoam() {
+        return visionForLinearLayoutAmountOfMilkFoam;
+    }
+
+    public LiveData<Boolean> getVisionForLinearLayoutAmountOfMilk() {
+        return visionForLinearLayoutAmountOfMilk;
+    }
+
+    public LiveData<Boolean> getVisionForLinearLayoutAmountOfCoffee() {
+        return visionForLinearLayoutAmountOfCoffee;
+    }
+
+    public LiveData<Boolean> getVisionForLinearLayoutAmountOfHotWater() {
+        return visionForLinearLayoutAmountOfHotWater;
+    }
+
+    public LiveData<Integer> getVisionForMainDrinkImage() {
+        return visionForMainDrinkImage;
+    }
+
+    public LiveData<Boolean> getVisionForConstraintLayoutAroma() {
+        return visionForConstraintLayoutAroma;
+    }
+
+    public LiveData<Boolean> getVisionForConstraintLayoutTemperature() {
+        return visionForConstraintLayoutTemperature;
+    }
+
+    public LiveData<Boolean> getVisionForConstraintLayoutWhatFirst() {
+        return visionForConstraintLayoutWhatFirst;
+    }
+
+    public LiveData<Boolean> getVisionForConstraintLayoutQuantity() {
+        return visionForConstraintLayoutQuantity;
+    }
+
+    public MutableLiveData<Enum> getContentForConstraintLayoutAroma() {
+        return contentForConstraintLayoutAroma;
+    }
+
+    public MutableLiveData<Enum> getContentForConstraintLayoutTemperature() {
+        return contentForConstraintLayoutTemperature;
+    }
+
+    public MutableLiveData<Enum> getContentForConstraintLayoutWhatFirst() {
+        return contentForConstraintLayoutWhatFirst;
+    }
+
+    public MutableLiveData<Enum> getContentForConstraintLayoutQuantity() {
+        return contentForConstraintLayoutQuantity;
+    }
+
+    public LiveData<Boolean> getVisionForButtonStartImplementing() {
+        return visionForButtonStartImplementing;
+    }
+
+    public MutableLiveData<Boolean> getVisionForButtonCreateYourOwn() {
+        return visionForButtonCreateYourOwn;
+    }
+
+    public LiveData<Boolean> getVisionForButtonAddToFavorite() {
+        return visionForButtonAddToFavorite;
+    }
+
+    public LiveData<Boolean> getVisionForButtonDeleteFavoriteRecipe() {
+        return visionForButtonDeleteFavoriteRecipe;
+    }
+
+    public MutableLiveData<Boolean> getVisionForButtonUpdateFavoriteRecipe() {
+        return visionForButtonUpdateFavoriteRecipe;
+    }
+    //setters
+
+    public void setContentForEditTextAmountOfMilkFoam(int contentForEditTextAmountOfMilkFoam) {
+        this.contentForEditTextAmountOfMilkFoam.setValue(contentForEditTextAmountOfMilkFoam);
+    }
+
+    public void setContentForEditTextAmountOfMilk(int contentForEditTextAmountOfMilk) {
+        this.contentForEditTextAmountOfMilk.setValue(contentForEditTextAmountOfMilk);
+    }
+
+    public void setContentForEditTextAmountOfCoffee(int contentForEditTextAmountOfCoffee) {
+        this.contentForEditTextAmountOfCoffee.setValue(contentForEditTextAmountOfCoffee);
+    }
+
+    public void setContentForEditTextAmountOfHotWater(int contentForEditTextAmountOfHotWater) {
+        this.contentForEditTextAmountOfHotWater.setValue(contentForEditTextAmountOfHotWater);
+    }
+
+    public void setContentForConstraintLayoutAroma(Enum contentForConstraintLayoutAroma) {
+        this.contentForConstraintLayoutAroma.setValue(contentForConstraintLayoutAroma);
+    }
+
+    public void setContentForConstraintLayoutTemperature(Enum contentForConstraintLayoutTemperature) {
+        this.contentForConstraintLayoutTemperature.setValue(contentForConstraintLayoutTemperature);
+    }
+
+    public void setContentForConstraintLayoutWhatFirst(Enum contentForConstraintLayoutWhatFirst) {
+        this.contentForConstraintLayoutWhatFirst.setValue(contentForConstraintLayoutWhatFirst);
+    }
+
+    public void setContentForConstraintLayoutQuantity(Enum contentForConstraintLayoutQuantity) {
+        this.contentForConstraintLayoutQuantity.setValue(contentForConstraintLayoutQuantity);
+    }
+
+    public void setVisionForButtonCreateYourOwn(boolean visionForButtonCreateYourOwn) {
+        this.visionForButtonCreateYourOwn.setValue(visionForButtonCreateYourOwn);
+    }
+
+    public void setVisionForButtonUpdateFavoriteRecipe(boolean visionForButtonUpdateFavoriteRecipe) {
+        this.visionForButtonUpdateFavoriteRecipe.setValue(visionForButtonUpdateFavoriteRecipe);
+    }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+
+        }
+    }
+
+
+
+
+
+
 
     /*
 

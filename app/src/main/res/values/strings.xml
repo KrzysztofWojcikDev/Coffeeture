@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">Coffeeture</string>
+    <string name="rinse">Rinse</string>
+    <string name="options">Options</string>
+    <string name="back">BACK</string>
+    <string name="choose_your_drink">Choose your drink!</string>
+    <string name="rinsing_process">Rinsing process</string>
+    <string name="ristretto">Ristretto</string>
+    <string name="espresso">Espresso</string>
+    <string name="lungo">Lungo</string>
+    <string name="americano">Americano</string>
+    <string name="coffee">Coffee</string>
+    <string name="cappucino">Cappucino</string>
+    <string name="cafe_late">Cafe Late</string>
+    <string name="latte">Latte</string>
+    <string name="hot_water">Hot Water</string>
+    <string name="milk">Milk</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.example.coffeeture.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.ViewModelProviders;
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -8,14 +9,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
+import android.widget.TextView;
 import com.example.coffeeture.DrinkClass.Americano;
 import com.example.coffeeture.DrinkClass.CafeLate;
 import com.example.coffeeture.DrinkClass.Cappuccino;
 import com.example.coffeeture.DrinkClass.Coffee;
+import com.example.coffeeture.DrinkClass.Drink;
 import com.example.coffeeture.DrinkClass.HotWater;
 import com.example.coffeeture.DrinkClass.Latte;
 import com.example.coffeeture.DrinkClass.Milk;
+import com.example.coffeeture.Presenters.PresenterDrinkSelection;
 import com.example.coffeeture.Presenters.PresenterSettingDrink;
 import com.example.coffeeture.R;
 import com.example.coffeeture.ViewModels.ViewModelToolbar;
@@ -23,13 +26,13 @@ import com.example.coffeeture.ViewModels.ViewModelToolbar;
 
 public class DrinkSelectionActivity extends AppCompatActivity implements View.OnClickListener {
 
-
-
     ViewModelToolbar viewModelToolbar;
-    PresenterSettingDrink<?> presenterSettingDrink;
-    // PresenterToolbar presenterToolbar;
+    PresenterSettingDrink<? extends Drink> presenterSettingDrink;
+
     Button button_options;
     Button button_rinse;
+    ConstraintLayout button_back;
+    TextView headline;
 
     Button button_small_coffee;
     Button button_coffee;
@@ -46,40 +49,26 @@ public class DrinkSelectionActivity extends AppCompatActivity implements View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drink_selection);
 
+
+        viewModelToolbar = new PresenterDrinkSelection("Choose your drink").getViewModelToolbar();
         viewModelToolbar = ViewModelProviders.of(DrinkSelectionActivity.this).get(ViewModelToolbar.class);
-        viewModelToolbar = new ViewModelToolbar.ToolbarBuilder()
-                .setHeadline("Choose your drink")
-                .setVisibilityForBackButton(false)
-                .setVisibilityForOptionsButton(true)
-                .setVisibilityForRinseButton(false)
-                .build();
 
-
-
-
-        // presenterToolbar = new PresenterToolbar(viewModelToolbar);
         button_options = findViewById(R.id.button_options);
-
         button_rinse = findViewById(R.id.button_rinse);
+        button_back = findViewById(R.id.view_for_back_button);
+        headline = findViewById(R.id.textView_common);
 
         button_small_coffee = findViewById(R.id.first_recipe_button);
-
         button_coffee = findViewById(R.id.second_recipe_button);
-
         button_americano = findViewById(R.id.third_recipe_button);
-
         button_cappuccino = findViewById(R.id.fourth_recipe_button);
-
         button_cafe_late = findViewById(R.id.fift_recipe_button);
-
         button_latte = findViewById(R.id.sixth_recipe_button);
-
         button_milk = findViewById(R.id.seventh_recipe_button);
-
         button_favorite = findViewById(R.id.eighth_recipe_button);
-
         button_hot_water = findViewById(R.id.ninth_recipe_button);
 
+        button_back.setOnClickListener(this);
         button_options.setOnClickListener(this);
         button_rinse.setOnClickListener(this);
         button_coffee.setOnClickListener(this);
@@ -92,9 +81,38 @@ public class DrinkSelectionActivity extends AppCompatActivity implements View.On
         button_hot_water.setOnClickListener(this);
         button_small_coffee.setOnClickListener(this);
 
+
+        viewModelToolbar.getHeadline().observe(this, content-> {
+            if(content!=null) {
+                headline.setVisibility(View.VISIBLE);
+                headline.setText(content);
+            }
+        });
+
+        viewModelToolbar.getVisibilityForBackButton().observe(this, state -> {
+            if(state)
+                button_back.setVisibility(View.VISIBLE);
+            else
+                button_back.setVisibility(View.INVISIBLE);
+        });
+
+        viewModelToolbar.getVisibilityForOptionsButton().observe(this, state -> {
+            if(state)
+                button_options.setVisibility(View.VISIBLE);
+            else
+                button_options.setVisibility(View.INVISIBLE);
+        });
+
+        viewModelToolbar.getVisibilityForRinseButton().observe(this, state -> {
+            if(state)
+                button_rinse.setVisibility(View.VISIBLE);
+            else
+                button_rinse.setVisibility(View.INVISIBLE);
+        });
     }
 
-    private void activityStarter(PresenterSettingDrink<?> presenterSettingDrink, Intent intent) {
+
+    private void activityStarter(PresenterSettingDrink<? extends Drink> presenterSettingDrink, Intent intent) {
         intent.putExtra("presenter", presenterSettingDrink);
         startActivity(intent);
     }

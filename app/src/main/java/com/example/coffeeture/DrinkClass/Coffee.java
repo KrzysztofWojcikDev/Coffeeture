@@ -20,7 +20,9 @@ public final class Coffee extends Drink {
     private Enum cupsQuantity;
     private Enum aromaProfile;
     private Enum temperatureOfDrink ;
+    public Coffee(){
 
+    }
     private Coffee(Builder builder){
         this.amountOfCoffee = builder.amountOfCoffee;
         this.name = builder.name;

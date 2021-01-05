@@ -10,7 +10,7 @@ public final class Cappuccino extends Drink{
 
     private final int amountOfHotWater = 0;
     private final String type = "Cappuccino";
-    private final int imageResourceId = R.id.imageViewCoappuccino;
+    private final int imageResourceId = R.id.imageViewCappuccino;
 
     private int amountOfMilkFoam = 50;
     private int amountOfMilk = 100;
@@ -87,6 +87,7 @@ public final class Cappuccino extends Drink{
     public int getImageResourceId() {
         return imageResourceId;
     }
+
     public static class Builder extends Drink.Builder{
 
         //default values in case when the client will initiate an Coffee object without called set methods
