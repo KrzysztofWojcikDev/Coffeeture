@@ -2,7 +2,10 @@ package com.example.coffeeture.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelStore;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 
@@ -49,9 +52,10 @@ public class DrinkSelectionActivity extends AppCompatActivity implements View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drink_selection);
 
+        viewModelToolbar = new ViewModelProvider(this).get(ViewModelToolbar.class);
 
         viewModelToolbar = new PresenterDrinkSelection("Choose your drink").getViewModelToolbar();
-        viewModelToolbar = ViewModelProviders.of(DrinkSelectionActivity.this).get(ViewModelToolbar.class);
+        System.out.println(viewModelToolbar.getHeadline().getValue()+"po");
 
         button_options = findViewById(R.id.button_options);
         button_rinse = findViewById(R.id.button_rinse);

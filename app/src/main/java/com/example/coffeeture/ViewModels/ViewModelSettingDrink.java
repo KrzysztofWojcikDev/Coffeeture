@@ -21,31 +21,31 @@ import java.io.Serializable;
     private MutableLiveData<Integer> contentForEditTextAmountOfCoffee;
     private MutableLiveData<Integer> contentForEditTextAmountOfHotWater;
 
-    private final LiveData<Boolean> visionForLinearLayoutAmountOfMilkFoam;
-    private final LiveData<Boolean> visionForLinearLayoutAmountOfMilk;
-    private final LiveData<Boolean> visionForLinearLayoutAmountOfCoffee;
-    private final LiveData<Boolean> visionForLinearLayoutAmountOfHotWater;
+    private  LiveData<Boolean> visionForLinearLayoutAmountOfMilkFoam;
+    private  LiveData<Boolean> visionForLinearLayoutAmountOfMilk;
+    private  LiveData<Boolean> visionForLinearLayoutAmountOfCoffee;
+    private  LiveData<Boolean> visionForLinearLayoutAmountOfHotWater;
 
-    private final LiveData<Integer> visionForMainDrinkImage;
+    private  LiveData<Integer> visionForMainDrinkImage;
 
-    private final LiveData<Boolean> visionForConstraintLayoutAroma;
-    private final LiveData<Boolean> visionForConstraintLayoutTemperature;
-    private final LiveData<Boolean> visionForConstraintLayoutWhatFirst;
-    private final LiveData<Boolean> visionForConstraintLayoutQuantity;
+    private  LiveData<Boolean> visionForConstraintLayoutAroma;
+    private  LiveData<Boolean> visionForConstraintLayoutTemperature;
+    private  LiveData<Boolean> visionForConstraintLayoutWhatFirst;
+    private  LiveData<Boolean> visionForConstraintLayoutQuantity;
 
     private MutableLiveData<Enum> contentForConstraintLayoutAroma;
     private MutableLiveData<Enum> contentForConstraintLayoutTemperature;
     private MutableLiveData<Enum> contentForConstraintLayoutWhatFirst;
     private MutableLiveData<Enum> contentForConstraintLayoutQuantity;
 
-    private final LiveData<Boolean> visionForButtonStartImplementing;//this parameter is always true
+    private LiveData<Boolean> visionForButtonStartImplementing;//this parameter is always true
     private MutableLiveData<Boolean> visionForButtonCreateYourOwn;//this parameter is possible to change by setter
-    private final LiveData<Boolean> visionForButtonAddToFavorite;
-    private final LiveData<Boolean> visionForButtonDeleteFavoriteRecipe;
-    private MutableLiveData<Boolean>visionForButtonUpdateFavoriteRecipe;//this parameter is possible to change by seTTER
+    private LiveData<Boolean> visionForButtonAddToFavorite;
+    private LiveData<Boolean> visionForButtonDeleteFavoriteRecipe;
+    private MutableLiveData<Boolean>visionForButtonUpdateFavoriteRecipe;//this parameter is possible to change by setter
 
 
-
+    public ViewModelSettingDrink(){};
     public ViewModelSettingDrink(T drink) {
 
 
@@ -112,6 +112,33 @@ import java.io.Serializable;
         }
 
     }
+
+        protected ViewModelSettingDrink(Parcel in) {
+        }
+
+        public static final Creator<ViewModelSettingDrink> CREATOR = new Creator<ViewModelSettingDrink>() {
+            @Override
+            public ViewModelSettingDrink createFromParcel(Parcel in) {
+                return new ViewModelSettingDrink(in);
+            }
+
+            @Override
+            public ViewModelSettingDrink[] newArray(int size) {
+                return new ViewModelSettingDrink[size];
+            }
+        };
+
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+
+
+        }
 
     public MutableLiveData<Integer> getContentForEditTextAmountOfMilkFoam() {
         return contentForEditTextAmountOfMilkFoam;
@@ -242,15 +269,6 @@ import java.io.Serializable;
         this.visionForButtonUpdateFavoriteRecipe.setValue(visionForButtonUpdateFavoriteRecipe);
     }
 
-        @Override
-        public int describeContents() {
-            return 0;
-        }
-
-        @Override
-        public void writeToParcel(Parcel dest, int flags) {
-
-        }
     }
 
 

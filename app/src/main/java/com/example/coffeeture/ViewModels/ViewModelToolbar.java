@@ -1,33 +1,34 @@
 package com.example.coffeeture.ViewModels;
 
+import android.app.Application;
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.view.View;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import java.io.Serializable;
+public class ViewModelToolbar extends ViewModel implements Parcelable {
 
-public class ViewModelToolbar extends ViewModel implements Serializable {
-
-    private final LiveData<String> headline ;
-    private final LiveData<Boolean> visibilityForOptionsButton;
-    private final LiveData<Boolean> visibilityForBackButton;
-    private MutableLiveData<Boolean> visibilityForRinseButton;
+    private  LiveData<String>  headline ;
+    private  LiveData<Boolean> visibilityForOptionsButton;
+    private  LiveData<Boolean> visibilityForBackButton;
+    private  MutableLiveData<Boolean> visibilityForRinseButton;
 
     public ViewModelToolbar(){
-        this.headline = new MutableLiveData<>("");
-        this.visibilityForOptionsButton = new MutableLiveData<>(false);
-        this.visibilityForRinseButton = new MutableLiveData<>(false);
-        this.visibilityForBackButton = new MutableLiveData<>(false);
-    }
-    public static class ToolbarBuilder implements Serializable{
-        String headline = "default headline";
-        boolean visibilityForRinseButton = false;
-        boolean visibilityForOptionsButton = false;
-        boolean visibilityForBackButton = false;
 
-        public ToolbarBuilder setHeadline(String headline) {
+    }//this constructor is only for ViewModelProvider
+
+
+    public static class ToolbarBuilder {
+        private final String headline;
+        private boolean visibilityForRinseButton = false;
+        private boolean visibilityForOptionsButton = false;
+        private boolean visibilityForBackButton = false;
+
+        public ToolbarBuilder(String headline){
             this.headline = headline;
-            return this;
         }
 
         public ToolbarBuilder setVisibilityForRinseButton(boolean visibilityForRinseButton) {
@@ -51,6 +52,7 @@ public class ViewModelToolbar extends ViewModel implements Serializable {
 
     }
 
+
     private ViewModelToolbar(ToolbarBuilder toolbarBuilder) {
 
         this.headline = new MutableLiveData<>(toolbarBuilder.headline);
@@ -58,6 +60,37 @@ public class ViewModelToolbar extends ViewModel implements Serializable {
         this.visibilityForOptionsButton = new MutableLiveData<>(toolbarBuilder.visibilityForOptionsButton);
         this.visibilityForBackButton = new MutableLiveData<>(toolbarBuilder.visibilityForBackButton);
     }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.headline.getValue());
+        dest.writeBoolean(this.visibilityForBackButton.getValue());
+        dest.writeBoolean(this.visibilityForOptionsButton.getValue());
+        dest.writeBoolean(this.visibilityForRinseButton.getValue());
+
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<ViewModelToolbar> CREATOR = new Creator<ViewModelToolbar>() {
+        @Override
+        public ViewModelToolbar createFromParcel(Parcel in) {
+
+            return new ViewModelToolbar.ToolbarBuilder(in.readString())
+                    .setVisibilityForBackButton(in.readBoolean())
+                    .setVisibilityForRinseButton(in.readBoolean())
+                    .setVisibilityForOptionsButton(in.readBoolean())
+                    .build();
+        }
+
+        @Override
+        public ViewModelToolbar[] newArray(int size) {
+            return new ViewModelToolbar[size];
+        }
+    };
 
     public LiveData<String> getHeadline() {
         return this.headline;

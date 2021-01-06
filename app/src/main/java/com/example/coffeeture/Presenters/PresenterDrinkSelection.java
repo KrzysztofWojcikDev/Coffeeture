@@ -7,8 +7,7 @@ public class PresenterDrinkSelection {
 
 
     public PresenterDrinkSelection(String headLine){
-        this.viewModelToolbar = new ViewModelToolbar.ToolbarBuilder()
-                .setHeadline(headLine)
+        this.viewModelToolbar = new ViewModelToolbar.ToolbarBuilder(headLine)
                 .setVisibilityForOptionsButton(true)
                 .build();
     }

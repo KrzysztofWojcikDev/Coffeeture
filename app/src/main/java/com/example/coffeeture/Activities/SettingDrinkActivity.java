@@ -2,6 +2,7 @@ package com.example.coffeeture.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.graphics.drawable.Drawable;
@@ -17,6 +18,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.example.coffeeture.Presenters.PresenterSettingDrink;
@@ -75,13 +77,25 @@ public class SettingDrinkActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_drink);
+        viewModelSettingDrink = new ViewModelProvider(this).get(ViewModelSettingDrink.class);
 
         presenterSettingDrink = (PresenterSettingDrink<? extends Drink>) getIntent().getParcelableExtra("presenter");
         viewModelSettingDrink = presenterSettingDrink.getViewModelSettingDrink();
+        viewModelToolbar = new ViewModelProvider(this).get(ViewModelToolbar.class);
         viewModelToolbar = presenterSettingDrink.getViewModelToolbar();
 
-       // viewModelSettingDrink = ViewModelProviders.of(SettingDrinkActivity.this).get(ViewModelSettingDrink.class);
-    //    viewModelToolbar = ViewModelProviders.of(SettingDrinkActivity.this).get(ViewModelToolbar.class);
+
+       // viewModelToolbar = ViewModelProviders.of(SettingDrinkActivity.this).get(ViewModelToolbar.class);
+
+
+        System.out.println(presenterSettingDrink.getDrinkInt());
+        System.out.println(presenterSettingDrink.getViewModelToolbar().getVisibilityForRinseButton());
+        System.out.println(presenterSettingDrink.getViewModelToolbar().getHeadline().getValue()+"rinse button");
+
+
+
+
+        Toast.makeText(this,presenterSettingDrink.getDrinkInt(), Toast.LENGTH_SHORT).show();
 
         editTextAmountOfMilkFoam = findViewById(R.id.editText_amount_of_milk_foam);
         editTextAmountOfMilk = findViewById(R.id.editText_amount_of_milk);
@@ -123,10 +137,13 @@ public class SettingDrinkActivity extends AppCompatActivity {
         button_back = findViewById(R.id.view_for_back_button);
         headline = findViewById(R.id.textView_common);
 
+        System.out.println(viewModelSettingDrink.getContentForConstraintLayoutAroma()+"aroma");
         viewModelToolbar.getHeadline().observe(this, content-> {
             if(content!=null) {
                 headline.setVisibility(View.VISIBLE);
                 headline.setText(content);
+
+
             }
         });
 
