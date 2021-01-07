@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModel;
 import com.example.coffeeture.DrinkClass.Drink;
 import com.example.coffeeture.Enums.AromaProfile;
 import com.example.coffeeture.Enums.CupsQuantity;
+import com.example.coffeeture.Enums.TemperatureOfDrink;
 import com.example.coffeeture.Enums.WhatFirst;
 
 import java.io.Serializable;
@@ -33,10 +34,10 @@ import java.io.Serializable;
     private  LiveData<Boolean> visionForConstraintLayoutWhatFirst;
     private  LiveData<Boolean> visionForConstraintLayoutQuantity;
 
-    private MutableLiveData<Enum> contentForConstraintLayoutAroma;
-    private MutableLiveData<Enum> contentForConstraintLayoutTemperature;
-    private MutableLiveData<Enum> contentForConstraintLayoutWhatFirst;
-    private MutableLiveData<Enum> contentForConstraintLayoutQuantity;
+    private MutableLiveData<Enum<?>> contentForConstraintLayoutAroma;
+    private MutableLiveData<Enum<?>> contentForConstraintLayoutTemperature;
+    private MutableLiveData<Enum<?>> contentForConstraintLayoutWhatFirst;
+    private MutableLiveData<Enum<?>> contentForConstraintLayoutQuantity;
 
     private LiveData<Boolean> visionForButtonStartImplementing;//this parameter is always true
     private MutableLiveData<Boolean> visionForButtonCreateYourOwn;//this parameter is possible to change by setter
@@ -45,8 +46,160 @@ import java.io.Serializable;
     private MutableLiveData<Boolean>visionForButtonUpdateFavoriteRecipe;//this parameter is possible to change by setter
 
 
-    public ViewModelSettingDrink(){};
-    public ViewModelSettingDrink(T drink) {
+
+
+        protected static class ViewModelSettingDrinkBuilder{
+            private boolean visionForLinearLayoutAmountOfMilkFoam;
+            private boolean visionForLinearLayoutAmountOfMilk;
+            private boolean visionForLinearLayoutAmountOfCoffee;
+            private boolean visionForLinearLayoutAmountOfHotWater;
+            private boolean visionForConstraintLayoutAroma;
+            private boolean visionForConstraintLayoutTemperature;
+            private boolean visionForConstraintLayoutWhatFirst;
+            private boolean visionForConstraintLayoutQuantity;
+            private boolean visionForButtonStartImplementing = true;
+            private boolean visionForButtonCreateYourOwn = true;
+            private boolean visionForButtonAddToFavorite;
+            private boolean visionForButtonDeleteFavoriteRecipe;
+            private boolean visionForButtonUpdateFavoriteRecipe;
+
+            private int contentForEditTextAmountOfMilkFoam ;
+            private int contentForEditTextAmountOfMilk;
+            private int contentForEditTextAmountOfCoffee ;
+            private int contentForEditTextAmountOfHotWater ;
+            private int visionForMainDrinkImage;
+
+            private Enum contentForConstraintLayoutAroma;
+            private Enum contentForConstraintLayoutTemperature;
+            private Enum contentForConstraintLayoutWhatFirst;
+            private Enum contentForConstraintLayoutQuantity;
+
+      public ViewModelSettingDrinkBuilder setAmountOfMilkFoamAttributes(int amountOfMilkFoam){
+          if(amountOfMilkFoam == 0)
+              this.visionForLinearLayoutAmountOfMilkFoam = false;
+          else{
+              this.visionForLinearLayoutAmountOfMilkFoam = true;
+              this.contentForEditTextAmountOfMilkFoam = amountOfMilkFoam;
+          }
+          return this;
+      }
+      public ViewModelSettingDrinkBuilder setAmountOfMilkAttributes(int amountOfMilk){
+          if(amountOfMilk == 0)
+              this.visionForLinearLayoutAmountOfMilk= false;
+          else{
+              this.visionForLinearLayoutAmountOfMilk = true;
+              this.contentForEditTextAmountOfMilk = amountOfMilk;
+          }
+          return this;
+      }
+      public ViewModelSettingDrinkBuilder setAmountOfCoffeeAttributes(int amountOfCoffee){
+            if(amountOfCoffee == 0)
+                this.visionForLinearLayoutAmountOfCoffee = false;
+            else{
+                this.visionForLinearLayoutAmountOfCoffee = true;
+                this.contentForEditTextAmountOfCoffee = amountOfCoffee;
+            }
+
+            return this;
+        }
+      public ViewModelSettingDrinkBuilder setAmountOfHotWaterAttributes(int amountOfHotWater){
+            if(amountOfHotWater == 0)
+                this.visionForLinearLayoutAmountOfHotWater = false;
+            else{
+                this.visionForLinearLayoutAmountOfHotWater = true;
+                this.contentForEditTextAmountOfHotWater = amountOfHotWater;
+            }
+            return this;
+        }
+      public ViewModelSettingDrinkBuilder setAromaAttributes(Enum<?> aroma){
+          if (aroma.equals(AromaProfile.VOID)){
+              this.visionForConstraintLayoutAroma = false;
+          }
+          else {
+              this.contentForConstraintLayoutAroma = aroma;
+              this.visionForConstraintLayoutAroma = true;
+          }
+            return this;
+        }
+      public ViewModelSettingDrinkBuilder setTemperatureAttributes (Enum<?> temperature){
+
+                    this.contentForConstraintLayoutTemperature = temperature;
+                    this.visionForConstraintLayoutTemperature = true;
+                return this;
+            }
+      public ViewModelSettingDrinkBuilder setWhatFirstAttributes (Enum<?> whatFirst){
+
+                if (whatFirst.equals(WhatFirst.VOID)){
+                    this.visionForConstraintLayoutWhatFirst = false;
+                }
+                else {
+                    this.contentForConstraintLayoutWhatFirst = whatFirst;
+                    this.visionForConstraintLayoutWhatFirst = true;
+                }
+                return this;
+            }
+      public ViewModelSettingDrinkBuilder setQuantityAttributes (Enum<?> cupsQuantity){
+
+                if (cupsQuantity.equals(CupsQuantity.VOID)){
+                    this.visionForConstraintLayoutQuantity = false;
+                }
+                else {
+                    this.contentForConstraintLayoutQuantity = cupsQuantity;
+                    this.visionForConstraintLayoutQuantity = true;
+                }
+                return this;
+            }
+      public ViewModelSettingDrinkBuilder setImageResourceId(int imageResourceId){
+            this.visionForMainDrinkImage = imageResourceId;
+          return this;
+            }
+      public ViewModelSettingDrinkBuilder setVisionForButtons(String type,String name){
+            if (type.equals(name)) {
+                this.visionForButtonAddToFavorite = true;
+            }
+            else{
+                this.visionForButtonUpdateFavoriteRecipe = true;
+                this.visionForButtonDeleteFavoriteRecipe = true;
+            }
+          return this;
+            }
+
+      public ViewModelSettingDrink<?> build(){
+          return new ViewModelSettingDrink<>(this);
+      }
+
+
+    }
+    private ViewModelSettingDrink(ViewModelSettingDrinkBuilder builder){
+        //boolean data
+        this.visionForLinearLayoutAmountOfMilkFoam = new MutableLiveData<>(builder.visionForLinearLayoutAmountOfMilkFoam);
+        this.visionForLinearLayoutAmountOfMilk = new MutableLiveData<>(builder.visionForLinearLayoutAmountOfMilk);
+        this.visionForLinearLayoutAmountOfCoffee = new MutableLiveData<>(builder.visionForLinearLayoutAmountOfCoffee);
+        this.visionForLinearLayoutAmountOfHotWater = new MutableLiveData<>(builder.visionForLinearLayoutAmountOfHotWater);
+        this.visionForConstraintLayoutAroma = new MutableLiveData<>(builder.visionForConstraintLayoutAroma);
+        this.visionForConstraintLayoutTemperature = new MutableLiveData<>(builder.visionForConstraintLayoutTemperature);
+        this.visionForConstraintLayoutWhatFirst = new MutableLiveData<>(builder.visionForConstraintLayoutWhatFirst);
+        this.visionForConstraintLayoutQuantity = new MutableLiveData<>(builder.visionForConstraintLayoutQuantity);
+        this.visionForButtonStartImplementing = new MutableLiveData<>(builder.visionForButtonStartImplementing);
+        this.visionForButtonCreateYourOwn = new MutableLiveData<>(builder.visionForButtonCreateYourOwn);
+        this.visionForButtonAddToFavorite = new MutableLiveData<>(builder.visionForButtonAddToFavorite);
+        this.visionForButtonDeleteFavoriteRecipe = new MutableLiveData<>(builder.visionForButtonDeleteFavoriteRecipe);
+        this.visionForButtonUpdateFavoriteRecipe = new MutableLiveData<>(builder.visionForButtonUpdateFavoriteRecipe);
+        //int data
+        this.contentForEditTextAmountOfMilkFoam = new MutableLiveData<>(builder.contentForEditTextAmountOfMilkFoam);
+        this.contentForEditTextAmountOfMilk = new MutableLiveData<>(builder.contentForEditTextAmountOfMilk);
+        this.contentForEditTextAmountOfCoffee = new MutableLiveData<>(builder.contentForEditTextAmountOfCoffee);
+        this.contentForEditTextAmountOfHotWater = new MutableLiveData<>(builder.contentForEditTextAmountOfHotWater);
+        this.visionForMainDrinkImage = new MutableLiveData<>(builder.visionForMainDrinkImage);
+
+
+        //enum data
+        this.contentForConstraintLayoutAroma = new MutableLiveData<Enum<?>>(builder.contentForConstraintLayoutAroma);
+        this.contentForConstraintLayoutWhatFirst = new MutableLiveData<Enum<?>>(builder.contentForConstraintLayoutWhatFirst);
+        this.contentForConstraintLayoutQuantity = new MutableLiveData<Enum<?>>(builder.contentForConstraintLayoutQuantity);
+        this.contentForConstraintLayoutTemperature = new MutableLiveData<Enum<?>>(builder.contentForConstraintLayoutTemperature);
+    }
+  /*  public ViewModelSettingDrink(T drink) {
 
 
         this.visionForMainDrinkImage = new MutableLiveData<>(drink.getImageResourceId());
@@ -112,18 +265,19 @@ import java.io.Serializable;
         }
 
     }
+*/
 
         protected ViewModelSettingDrink(Parcel in) {
         }
 
-        public static final Creator<ViewModelSettingDrink> CREATOR = new Creator<ViewModelSettingDrink>() {
+        public static final Creator<ViewModelSettingDrink<?>> CREATOR = new Creator<ViewModelSettingDrink<?>>() {
             @Override
-            public ViewModelSettingDrink createFromParcel(Parcel in) {
-                return new ViewModelSettingDrink(in);
+            public ViewModelSettingDrink<?> createFromParcel(Parcel in) {
+                return new ViewModelSettingDrink<>(in);
             }
 
             @Override
-            public ViewModelSettingDrink[] newArray(int size) {
+            public ViewModelSettingDrink<?>[] newArray(int size) {
                 return new ViewModelSettingDrink[size];
             }
         };
@@ -192,19 +346,19 @@ import java.io.Serializable;
         return visionForConstraintLayoutQuantity;
     }
 
-    public MutableLiveData<Enum> getContentForConstraintLayoutAroma() {
+    public MutableLiveData<Enum<?>> getContentForConstraintLayoutAroma() {
         return contentForConstraintLayoutAroma;
     }
 
-    public MutableLiveData<Enum> getContentForConstraintLayoutTemperature() {
+    public MutableLiveData<Enum<?>> getContentForConstraintLayoutTemperature() {
         return contentForConstraintLayoutTemperature;
     }
 
-    public MutableLiveData<Enum> getContentForConstraintLayoutWhatFirst() {
+    public MutableLiveData<Enum<?>> getContentForConstraintLayoutWhatFirst() {
         return contentForConstraintLayoutWhatFirst;
     }
 
-    public MutableLiveData<Enum> getContentForConstraintLayoutQuantity() {
+    public MutableLiveData<Enum<?>> getContentForConstraintLayoutQuantity() {
         return contentForConstraintLayoutQuantity;
     }
 
@@ -245,19 +399,19 @@ import java.io.Serializable;
         this.contentForEditTextAmountOfHotWater.setValue(contentForEditTextAmountOfHotWater);
     }
 
-    public void setContentForConstraintLayoutAroma(Enum contentForConstraintLayoutAroma) {
+    public void setContentForConstraintLayoutAroma(Enum<?> contentForConstraintLayoutAroma) {
         this.contentForConstraintLayoutAroma.setValue(contentForConstraintLayoutAroma);
     }
 
-    public void setContentForConstraintLayoutTemperature(Enum contentForConstraintLayoutTemperature) {
+    public void setContentForConstraintLayoutTemperature(Enum<?> contentForConstraintLayoutTemperature) {
         this.contentForConstraintLayoutTemperature.setValue(contentForConstraintLayoutTemperature);
     }
 
-    public void setContentForConstraintLayoutWhatFirst(Enum contentForConstraintLayoutWhatFirst) {
+    public void setContentForConstraintLayoutWhatFirst(Enum<?> contentForConstraintLayoutWhatFirst) {
         this.contentForConstraintLayoutWhatFirst.setValue(contentForConstraintLayoutWhatFirst);
     }
 
-    public void setContentForConstraintLayoutQuantity(Enum contentForConstraintLayoutQuantity) {
+    public void setContentForConstraintLayoutQuantity(Enum<?> contentForConstraintLayoutQuantity) {
         this.contentForConstraintLayoutQuantity.setValue(contentForConstraintLayoutQuantity);
     }
 

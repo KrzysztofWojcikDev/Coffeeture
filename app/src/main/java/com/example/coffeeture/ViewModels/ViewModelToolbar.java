@@ -16,12 +16,9 @@ public class ViewModelToolbar extends ViewModel implements Parcelable {
     private  LiveData<Boolean> visibilityForBackButton;
     private  MutableLiveData<Boolean> visibilityForRinseButton;
 
-    public ViewModelToolbar(){
-
-    }//this constructor is only for ViewModelProvider
 
 
-    public static class ToolbarBuilder {
+    protected static class ToolbarBuilder {
         private final String headline;
         private boolean visibilityForRinseButton = false;
         private boolean visibilityForOptionsButton = false;

@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProviders;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
+import com.example.coffeeture.DrinkClass.Coffee;
 import com.example.coffeeture.DrinkClass.Drink;
 import com.example.coffeeture.Presenters.PresenterDrinkSelection;
 import com.example.coffeeture.R;
@@ -22,6 +23,7 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.example.coffeeture.Presenters.PresenterSettingDrink;
+import com.example.coffeeture.ViewModels.ViewModelFactorySettingDrink;
 import com.example.coffeeture.ViewModels.ViewModelSettingDrink;
 import com.example.coffeeture.ViewModels.ViewModelToolbar;
 
@@ -37,7 +39,7 @@ public class SettingDrinkActivity extends AppCompatActivity {
         TextView headline;
 
 
-        TextView textViewCommon;
+
         EditText editTextAmountOfMilkFoam;
         EditText editTextAmountOfMilk;
         EditText editTextAmountOfCoffee;
@@ -77,25 +79,14 @@ public class SettingDrinkActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_drink);
-        viewModelSettingDrink = new ViewModelProvider(this).get(ViewModelSettingDrink.class);
+
 
         presenterSettingDrink = (PresenterSettingDrink<? extends Drink>) getIntent().getParcelableExtra("presenter");
-        viewModelSettingDrink = presenterSettingDrink.getViewModelSettingDrink();
-        viewModelToolbar = new ViewModelProvider(this).get(ViewModelToolbar.class);
-        viewModelToolbar = presenterSettingDrink.getViewModelToolbar();
-
-
-       // viewModelToolbar = ViewModelProviders.of(SettingDrinkActivity.this).get(ViewModelToolbar.class);
-
-
-        System.out.println(presenterSettingDrink.getDrinkInt());
-        System.out.println(presenterSettingDrink.getViewModelToolbar().getVisibilityForRinseButton());
-        System.out.println(presenterSettingDrink.getViewModelToolbar().getHeadline().getValue()+"rinse button");
+        viewModelSettingDrink = new ViewModelProvider(this,presenterSettingDrink.getViewModelFactorySettingDrink()).get(ViewModelSettingDrink.class);
+        viewModelToolbar = new ViewModelProvider(this,presenterSettingDrink.getViewModelFactoryToolbar()).get(ViewModelToolbar.class);
 
 
 
-
-        Toast.makeText(this,presenterSettingDrink.getDrinkInt(), Toast.LENGTH_SHORT).show();
 
         editTextAmountOfMilkFoam = findViewById(R.id.editText_amount_of_milk_foam);
         editTextAmountOfMilk = findViewById(R.id.editText_amount_of_milk);
@@ -137,7 +128,7 @@ public class SettingDrinkActivity extends AppCompatActivity {
         button_back = findViewById(R.id.view_for_back_button);
         headline = findViewById(R.id.textView_common);
 
-        System.out.println(viewModelSettingDrink.getContentForConstraintLayoutAroma()+"aroma");
+
         viewModelToolbar.getHeadline().observe(this, content-> {
             if(content!=null) {
                 headline.setVisibility(View.VISIBLE);

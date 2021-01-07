@@ -52,10 +52,9 @@ public class DrinkSelectionActivity extends AppCompatActivity implements View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drink_selection);
 
-        viewModelToolbar = new ViewModelProvider(this).get(ViewModelToolbar.class);
+        viewModelToolbar = new ViewModelProvider(this,new PresenterDrinkSelection("Choose your drink").getViewModelFactoryToolbar()).get(ViewModelToolbar.class);
 
-        viewModelToolbar = new PresenterDrinkSelection("Choose your drink").getViewModelToolbar();
-        System.out.println(viewModelToolbar.getHeadline().getValue()+"po");
+
 
         button_options = findViewById(R.id.button_options);
         button_rinse = findViewById(R.id.button_rinse);

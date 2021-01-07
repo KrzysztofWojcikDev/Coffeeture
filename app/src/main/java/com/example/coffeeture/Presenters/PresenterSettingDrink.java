@@ -4,35 +4,32 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.example.coffeeture.DrinkClass.Drink;
-import com.example.coffeeture.ViewModels.ViewModelSettingDrink;
-import com.example.coffeeture.ViewModels.ViewModelToolbar;
+import com.example.coffeeture.ViewModels.ViewModelFactorySettingDrink;
+import com.example.coffeeture.ViewModels.ViewModelFactoryToolbar;
+
 
 
 public class PresenterSettingDrink <T extends Drink> implements Parcelable {
 
-    private  ViewModelSettingDrink<T> viewModelSettingDrink;
-    private  ViewModelToolbar viewModelToolbar;
-    private  String drinkInt;
+
+    private final ViewModelFactorySettingDrink<T> factorySettingDrink;
+    private final ViewModelFactoryToolbar factoryToolbar;
+
 
 
 
     public PresenterSettingDrink(T drink) {
 
-        this.drinkInt = "10";
-        this.viewModelSettingDrink = new ViewModelSettingDrink<>(drink);
-        this.viewModelToolbar = new ViewModelToolbar.ToolbarBuilder(drink.getName())
-                .setVisibilityForBackButton(true)
-                .build();
+        factorySettingDrink = new ViewModelFactorySettingDrink<>(drink);
+
+        factoryToolbar = new ViewModelFactoryToolbar(drink.getName(),true,false,false);
     }
 
     protected PresenterSettingDrink(Parcel in) {
-        drinkInt = in.readString();
-        System.out.println(drinkInt +"czy tu?");
 
-        this.viewModelSettingDrink = in.readParcelable(ViewModelSettingDrink.class.getClassLoader());
+        this.factorySettingDrink = in.readParcelable(ViewModelFactorySettingDrink.class.getClassLoader());
+        this.factoryToolbar = in.readParcelable(ViewModelFactoryToolbar.class.getClassLoader());
 
-        this.viewModelToolbar = in.readParcelable(ViewModelToolbar.class.getClassLoader());
-        System.out.println(viewModelToolbar.getHeadline().getValue()+"checking");
     }
 
     public static final Creator<PresenterSettingDrink<? extends Drink>> CREATOR = new Creator<PresenterSettingDrink<? extends Drink>>() {
@@ -44,15 +41,14 @@ public class PresenterSettingDrink <T extends Drink> implements Parcelable {
 
         @Override
         public PresenterSettingDrink<? extends Drink>[] newArray(int size) {
-            return new PresenterSettingDrink[size];
+            return new PresenterSettingDrink<?>[size];
         }
     };
 
-    public ViewModelSettingDrink<? extends Drink> getViewModelSettingDrink() { return this.viewModelSettingDrink;}
+    public ViewModelFactorySettingDrink<? extends Drink> getViewModelFactorySettingDrink(){return this.factorySettingDrink;}
 
-    public ViewModelToolbar getViewModelToolbar() { return this.viewModelToolbar; }
+    public ViewModelFactoryToolbar getViewModelFactoryToolbar() { return this.factoryToolbar; }
 
-    public String getDrinkInt() { return this.drinkInt; }
 
     @Override
     public int describeContents() {
@@ -61,9 +57,9 @@ public class PresenterSettingDrink <T extends Drink> implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(drinkInt);
-        dest.writeParcelable(viewModelSettingDrink,flags);
-        dest.writeParcelable(viewModelToolbar,flags);
+
+        dest.writeParcelable(factorySettingDrink,flags);
+        dest.writeParcelable(factoryToolbar,flags);
 
     }
 }

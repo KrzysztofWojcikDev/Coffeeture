@@ -1,6 +1,8 @@
 package com.example.coffeeture.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -32,14 +34,14 @@ public class SmallDrinkSelectionActivity extends AppCompatActivity implements Vi
 
     Button button_options;
     Button button_rinse;
-    Button button_back;
+    ConstraintLayout button_back;
     TextView headline;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_small_drink_selection);
 
-        viewModelToolbar = new PresenterDrinkSelection("Small coffees").getViewModelToolbar();
+        viewModelToolbar = new ViewModelProvider(this,new PresenterDrinkSelection("Choose your drink").getViewModelFactoryToolbar()).get(ViewModelToolbar.class);
 
         button_ristretto = findViewById(R.id.ristretto_button);
         button_espresso = findViewById(R.id.espresso_button);

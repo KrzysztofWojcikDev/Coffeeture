@@ -1,18 +1,15 @@
 package com.example.coffeeture.Presenters;
 
-import com.example.coffeeture.ViewModels.ViewModelToolbar;
+import com.example.coffeeture.ViewModels.ViewModelFactoryToolbar;
+
 
 public class PresenterDrinkSelection {
-    private ViewModelToolbar viewModelToolbar;
+    private final ViewModelFactoryToolbar factoryToolbar;
 
 
     public PresenterDrinkSelection(String headLine){
-        this.viewModelToolbar = new ViewModelToolbar.ToolbarBuilder(headLine)
-                .setVisibilityForOptionsButton(true)
-                .build();
+        this.factoryToolbar = new ViewModelFactoryToolbar(headLine,false,false,true);
     }
 
-    public ViewModelToolbar getViewModelToolbar() {
-        return viewModelToolbar;
-    }
+    public ViewModelFactoryToolbar getViewModelFactoryToolbar() { return this.factoryToolbar; }
 }
