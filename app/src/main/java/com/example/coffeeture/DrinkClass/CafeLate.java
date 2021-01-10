@@ -11,7 +11,7 @@ public final class CafeLate extends Drink {
     private final int amountOfHotWater = 0;
     private final int amountOfMilkFoam = 0;
     private final String type = "Cafe Late";
-    private final int imageResourceId = R.id.imageViewCafeLate;
+    private final int imageResourceId = R.id.image_cafeLate;
 
     private int amountOfMilk;
     private int amountOfCoffee;

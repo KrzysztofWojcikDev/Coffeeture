@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item type="id" name="a" />
-    
-    
+    <!-- every useful ids in toolbar.xml-->
+    <item type="id" name="toolbar" />
+    <item type="id" name="button_options" />
+    <item type="id" name="visibility_button_options" />
+    <item type="id" name="button_rinse" />
+    <item type="id" name="visibility_button_rinse" />
+    <item type="id" name="button_back" />
+    <item type="id" name="visibility_button_back" />
+    <item type="id" name="text_headline" />
+    <!-- every useful ids in activity_small_drink_selection.xml-->
+    <item type="id" name="button_ristretto" />
+    <item type="id" name="button_espresso" />
+    <item type="id" name="button_lungo" />
+    <!-- every useful ids in activity_drink_selection.xml-->
+    <item type="id" name="button_smallCoffees" />
+    <item type="id" name="button_coffee" />
+    <item type="id" name="button_americano" />
+    <item type="id" name="button_cafeLate" />
+    <item type="id" name="button_cappuccino" />
+    <item type="id" name="button_latte" />
+    <item type="id" name="button_milk" />
+    <item type="id" name="button_favorite" />
+    <item type="id" name="button_hotWater" />
+    <!-- every useful ids in activity_setting_drink.xml-->
+    <item type="id" name="image_ristretto" />
+    <item type="id" name="image_espresso" />
+    <item type="id" name="image_lungo" />
+    <item type="id" name="image_coffee" />
+    <item type="id" name="image_americano" />
+    <item type="id" name="image_cafeLate" />
+    <item type="id" name="image_cappuccino" />
+    <item type="id" name="image_latte" />
+    <item type="id" name="image_milk" />
+    <item type="id" name="image_hotWater" />
+    <item type="id" name="edit_amountOfCoffee" />
+    <item type="id" name="linear_visibility_amountOfCoffee"/>;
+    <item type="id" name="edit_amountOfMilk" />
+    <item type="id" name="linear_visibility_amountOfMilk"/>;
+    <item type="id" name="edit_amountOfMilkFoam" />
+    <item type="id" name="linear_visibility_amountOfMilkFoam"/>;
+    <item type="id" name="edit_amountOfHotWater" />
+    <item type="id" name="linear_visibility_amountOfHotWater"/>;
+
+    <item type="id" name="constraint_visibility_update"/>;
+    <item type="id" name="button_update" />
+    <item type="id" name="constraint_visibility_add"/>;
+    <item type="id" name="button_add" />
+    <item type="id" name="constraint_visibility_delete"/>;
+    <item type="id" name="button_delete" />
+    <item type="id" name="button_start" />
+
 </resources>

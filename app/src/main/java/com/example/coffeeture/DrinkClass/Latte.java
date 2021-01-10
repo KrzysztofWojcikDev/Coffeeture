@@ -10,7 +10,7 @@ public final class Latte extends Drink{
     private final int amountOfHotWater = 0;
     private final Enum cupsQuantity = CupsQuantity.VOID;
     private final String type = "Latte";
-    private final int imageResourceId = R.id.imageViewLatte;
+    private final int imageResourceId = R.id.image_latte;
 
     private int amountOfMilkFoam;
     private int amountOfMilk;

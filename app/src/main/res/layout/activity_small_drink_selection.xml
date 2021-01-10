@@ -9,11 +9,10 @@
 
 
     <include
-        android:id="@+id/toolbar_main"
+        android:id="@id/toolbar"
         layout="@layout/toolbar" />
 
     <ImageView
-        android:id="@+id/desktop_image2"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:scaleType="center"
@@ -56,7 +55,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <Button
-                    android:id="@+id/lungo_button"
+                    android:id="@id/button_lungo"
                     style="@style/Widget.AppCompat.Button"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
@@ -73,7 +72,6 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/imageView19"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:layout_marginStart="100dp"
@@ -102,7 +100,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <Button
-                    android:id="@+id/espresso_button"
+                    android:id="@id/button_espresso"
                     style="@style/Widget.AppCompat.Button"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
@@ -119,7 +117,6 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/imageView13"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:layout_marginStart="95dp"
@@ -146,7 +143,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <Button
-                    android:id="@+id/ristretto_button"
+                    android:id="@+id/button_ristretto"
                     style="@style/Widget.AppCompat.Button"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
@@ -163,7 +160,6 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/imageView14"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:layout_marginStart="100dp"

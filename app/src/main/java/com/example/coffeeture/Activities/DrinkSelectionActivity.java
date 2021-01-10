@@ -3,8 +3,6 @@ package com.example.coffeeture.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.lifecycle.ViewModelStore;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -34,7 +32,7 @@ public class DrinkSelectionActivity extends AppCompatActivity implements View.On
 
     Button button_options;
     Button button_rinse;
-    ConstraintLayout button_back;
+    Button button_back;
     TextView headline;
 
     Button button_small_coffee;
@@ -47,6 +45,7 @@ public class DrinkSelectionActivity extends AppCompatActivity implements View.On
     Button button_favorite;
     Button button_hot_water;
 
+    ConstraintLayout visibility_button_back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,18 +57,20 @@ public class DrinkSelectionActivity extends AppCompatActivity implements View.On
 
         button_options = findViewById(R.id.button_options);
         button_rinse = findViewById(R.id.button_rinse);
-        button_back = findViewById(R.id.view_for_back_button);
-        headline = findViewById(R.id.textView_common);
+        button_back = findViewById(R.id.button_back);
+        headline = findViewById(R.id.text_headline);
 
-        button_small_coffee = findViewById(R.id.first_recipe_button);
-        button_coffee = findViewById(R.id.second_recipe_button);
-        button_americano = findViewById(R.id.third_recipe_button);
-        button_cappuccino = findViewById(R.id.fourth_recipe_button);
-        button_cafe_late = findViewById(R.id.fift_recipe_button);
-        button_latte = findViewById(R.id.sixth_recipe_button);
-        button_milk = findViewById(R.id.seventh_recipe_button);
-        button_favorite = findViewById(R.id.eighth_recipe_button);
-        button_hot_water = findViewById(R.id.ninth_recipe_button);
+        button_small_coffee = findViewById(R.id.button_smallCoffees);
+        button_coffee = findViewById(R.id.button_coffee);
+        button_americano = findViewById(R.id.button_americano);
+        button_cappuccino = findViewById(R.id.button_cappuccino);
+        button_cafe_late = findViewById(R.id.button_cafeLate);
+        button_latte = findViewById(R.id.button_latte);
+        button_milk = findViewById(R.id.button_milk);
+        button_favorite = findViewById(R.id.button_favorite);
+        button_hot_water = findViewById(R.id.button_hotWater);
+
+        visibility_button_back = findViewById(R.id.visibility_button_back);
 
         button_back.setOnClickListener(this);
         button_options.setOnClickListener(this);
@@ -92,12 +93,12 @@ public class DrinkSelectionActivity extends AppCompatActivity implements View.On
             }
         });
 
-        viewModelToolbar.getVisibilityForBackButton().observe(this, state -> {
+     /*   viewModelToolbar.getVisibilityForBackButton().observe(this, state -> {
             if(state)
-                button_back.setVisibility(View.VISIBLE);
+                visibility_button_back.setVisibility(View.VISIBLE);
             else
-                button_back.setVisibility(View.INVISIBLE);
-        });
+                visibility_button_back.setVisibility(View.INVISIBLE);
+        });*/
 
         viewModelToolbar.getVisibilityForOptionsButton().observe(this, state -> {
             if(state)
@@ -124,51 +125,51 @@ public class DrinkSelectionActivity extends AppCompatActivity implements View.On
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.first_recipe_button:
+            case R.id.button_smallCoffees:
                 Intent intentSmallCoffees = new Intent(DrinkSelectionActivity.this, SmallDrinkSelectionActivity.class);
                 startActivity(intentSmallCoffees);
                 break;
-            case R.id.second_recipe_button:
+            case R.id.button_coffee:
                 Intent intentCoffee = new Intent(DrinkSelectionActivity.this, SettingDrinkActivity.class);
                 Coffee coffee = new Coffee.Builder().build();
                 presenterSettingDrink = new PresenterSettingDrink<>(coffee);
                 activityStarter(presenterSettingDrink, intentCoffee);
                 break;
-            case R.id.third_recipe_button:
+            case R.id.button_americano:
                 Intent intentAmericano = new Intent(DrinkSelectionActivity.this, SettingDrinkActivity.class);
                 Americano americano = new Americano.Builder().build();
                 presenterSettingDrink = new PresenterSettingDrink<>(americano);
                 activityStarter(presenterSettingDrink, intentAmericano);
                 break;
-            case R.id.fourth_recipe_button:
+            case R.id.button_cappuccino:
                 Intent intentCappuccino = new Intent(DrinkSelectionActivity.this, SettingDrinkActivity.class);
                 Cappuccino cappuccino = new Cappuccino.Builder().build();
                 presenterSettingDrink = new PresenterSettingDrink<>(cappuccino);
                 activityStarter(presenterSettingDrink, intentCappuccino);
                 break;
-            case R.id.fift_recipe_button:
+            case R.id.button_cafeLate:
                 Intent intentCafeLate = new Intent(DrinkSelectionActivity.this, SettingDrinkActivity.class);
                 CafeLate cafeLate = new CafeLate.Builder().build();
                 presenterSettingDrink = new PresenterSettingDrink<>(cafeLate);
                 activityStarter(presenterSettingDrink, intentCafeLate);
                 break;
-            case R.id.sixth_recipe_button:
+            case R.id.button_latte:
                 Intent intentLatte = new Intent(DrinkSelectionActivity.this, SettingDrinkActivity.class);
                 Latte latte = new Latte.Builder().build();
                 presenterSettingDrink = new PresenterSettingDrink<>(latte);
                 activityStarter(presenterSettingDrink, intentLatte);
                 break;
-            case R.id.seventh_recipe_button:
+            case R.id.button_milk:
                 Intent intentMilk = new Intent(DrinkSelectionActivity.this, SettingDrinkActivity.class);
                 Milk milk = new Milk.Builder().build();
                 presenterSettingDrink = new PresenterSettingDrink<>(milk);
                 activityStarter(presenterSettingDrink, intentMilk);
                 break;
-            case R.id.eighth_recipe_button:
+            case R.id.button_favorite:
                 Intent intentFavorite = new Intent(DrinkSelectionActivity.this, SettingDrinkActivity.class);
                 startActivity(intentFavorite);
                 break;
-            case R.id.ninth_recipe_button:
+            case R.id.button_hotWater:
                 Intent intentHotWater = new Intent(DrinkSelectionActivity.this, SettingDrinkActivity.class);
                 HotWater hotWater = new HotWater.Builder().build();
                 presenterSettingDrink = new PresenterSettingDrink<>(hotWater);

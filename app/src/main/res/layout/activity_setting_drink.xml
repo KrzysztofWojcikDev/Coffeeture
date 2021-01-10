@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_container_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.SettingDrinkActivity">
@@ -20,7 +19,7 @@
         app:srcCompat="@drawable/desktop_image" />
 
     <include
-        android:id="@+id/toolbar_main"
+        android:id="@id/toolbar"
         layout="@layout/toolbar"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,7 +47,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/imageViewLungo"
+                android:id="@id/image_lungo"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="74dp"
@@ -64,7 +63,7 @@
                 app:srcCompat="@drawable/lungo_best" />
 
             <ImageView
-                android:id="@+id/imageViewEspresso"
+                android:id="@id/image_espresso"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="74dp"
@@ -80,7 +79,7 @@
                 app:srcCompat="@drawable/espresso_best" />
 
             <ImageView
-                android:id="@+id/imageViewRistretto"
+                android:id="@id/image_ristretto"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="74dp"
@@ -96,7 +95,7 @@
                 app:srcCompat="@drawable/ristretto_best" />
 
             <ImageView
-                android:id="@+id/imageViewHotWater"
+                android:id="@id/image_hotWater"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="120dp"
@@ -112,7 +111,7 @@
                 app:srcCompat="@drawable/water_best" />
 
             <ImageView
-                android:id="@+id/imageViewMilk"
+                android:id="@id/image_milk"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="120dp"
@@ -128,7 +127,7 @@
                 app:srcCompat="@drawable/milk_best" />
 
             <ImageView
-                android:id="@+id/imageViewCafeLate"
+                android:id="@id/image_cafeLate"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="88dp"
@@ -144,7 +143,7 @@
                 app:srcCompat="@drawable/cafe_late" />
 
             <ImageView
-                android:id="@+id/imageViewAmericano"
+                android:id="@id/image_americano"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="88dp"
@@ -160,7 +159,7 @@
                 app:srcCompat="@drawable/americano_image" />
 
             <ImageView
-                android:id="@+id/imageViewCappuccino"
+                android:id="@id/image_cappuccino"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginStart="88dp"
@@ -176,7 +175,7 @@
                 app:srcCompat="@drawable/cappucino" />
 
             <ImageView
-                android:id="@+id/imageViewCoffee"
+                android:id="@id/image_coffee"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="88dp"
@@ -192,7 +191,7 @@
                 app:srcCompat="@drawable/big_cup" />
 
             <ImageView
-                android:id="@+id/imageViewLatte"
+                android:id="@id/image_latte"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="120dp"
@@ -208,15 +207,16 @@
                 app:srcCompat="@drawable/latte_best" />
 
             <LinearLayout
-                android:id="@+id/linear_layout_amount_of_hot_water"
+                android:id="@id/linear_visibility_amountOfHotWater"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
+                android:visibility="gone"
                 tools:layout_editor_absoluteX="60dp"
                 tools:layout_editor_absoluteY="20dp">
 
                 <EditText
-                    android:id="@+id/editText_amount_of_hot_water"
+                    android:id="@id/edit_amountOfHotWater"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:drawable/screen_background_light_transparent"
@@ -227,7 +227,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linear_layout_amount_of_milk"
+                android:id="@id/linear_visibility_amountOfMilk"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
@@ -236,7 +236,7 @@
                 tools:layout_editor_absoluteY="20dp">
 
                 <EditText
-                    android:id="@+id/editText_amount_of_milk"
+                    android:id="@id/edit_amountOfMilk"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:drawable/screen_background_light_transparent"
@@ -247,7 +247,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linear_layout_amount_of_milk_foam"
+                android:id="@id/linear_visibility_amountOfMilkFoam"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
@@ -256,7 +256,7 @@
                 tools:layout_editor_absoluteY="20dp">
 
                 <EditText
-                    android:id="@+id/editText_amount_of_milk_foam"
+                    android:id="@id/edit_amountOfMilkFoam"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:drawable/screen_background_light_transparent"
@@ -267,7 +267,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linear_layout_amount_of_coffee"
+                android:id="@id/linear_visibility_amountOfCoffee"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
@@ -276,7 +276,7 @@
                 tools:layout_editor_absoluteY="20dp">
 
                 <EditText
-                    android:id="@+id/editText_amount_of_coffee"
+                    android:id="@id/edit_amountOfCoffee"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:drawable/screen_background_light_transparent"
@@ -285,65 +285,6 @@
                     android:inputType="numberSigned"
                     android:text="Coffee" />
             </LinearLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="400dp"
-                android:layout_height="280dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="60dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="60dp"
-            android:layout_marginRight="60dp"
-            android:layout_marginBottom="150dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/view_of_hot_water"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/view_of_coffee"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/view_of_milk_foam"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/view_of_milk"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -367,7 +308,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/view_for_add_button"
+                    android:id="@id/constraint_visibility_add"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="20dp"
@@ -383,7 +324,6 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
-                        android:id="@+id/imageView9"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:scaleType="center"
@@ -394,7 +334,7 @@
                         app:srcCompat="@drawable/orginal_for_toolbar" />
 
                     <Button
-                        android:id="@+id/button_add_to_favorite"
+                        android:id="@id/button_add"
                         style="@style/Widget.AppCompat.Button"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
@@ -413,7 +353,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/view_for_update_button"
+                    android:id="@id/constraint_visibility_update"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="20dp"
@@ -429,7 +369,6 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
-                        android:id="@+id/imageView8"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:scaleType="center"
@@ -440,7 +379,7 @@
                         app:srcCompat="@drawable/orginal_for_toolbar" />
 
                     <Button
-                        android:id="@+id/button_update_favorite_recipe"
+                        android:id="@id/button_update"
                         style="@style/Widget.AppCompat.Button"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
@@ -457,7 +396,8 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout><![CDATA[
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <![CDATA[
 
                 />
 
@@ -477,7 +417,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-               <!-- <Button
+                <!-- <Button
                     android:id="@+id/button_change_default_recipe"
                     style="@style/Widget.AppCompat.Button"
                     android:layout_width="fill_parent"
@@ -496,7 +436,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 -->
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/view_for_delete_button"
+                    android:id="@id/constraint_visibility_delete"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="20dp"
@@ -512,7 +452,6 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
-                        android:id="@+id/imageView10"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:scaleType="center"
@@ -523,7 +462,7 @@
                         app:srcCompat="@drawable/orginal_for_toolbar" />
 
                     <Button
-                        android:id="@+id/button_delete_recipe"
+                        android:id="@id/button_delete"
                         style="@style/Widget.AppCompat.Button"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
@@ -590,7 +529,6 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
-                        android:id="@+id/imageView6"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:scaleType="center"
@@ -601,7 +539,7 @@
                         app:srcCompat="@drawable/orginal_for_toolbar" />
 
                     <Button
-                        android:id="@+id/button_start_implementing"
+                        android:id="@id/button_start"
                         style="@style/Widget.AppCompat.Button"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
@@ -648,7 +586,6 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
-                        android:id="@+id/imageView7"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:scaleType="center"

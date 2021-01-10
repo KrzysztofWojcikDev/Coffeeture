@@ -14,7 +14,7 @@ public final class Americano extends Drink{
     private final int amountOfMilkFoam = 0;
     private final Enum cupsQuantity = CupsQuantity.VOID;
     private final String type = "Americano";
-    private final int imageResourceId = R.id.imageViewAmericano;
+    private final int imageResourceId = R.id.image_americano;
 
 
 

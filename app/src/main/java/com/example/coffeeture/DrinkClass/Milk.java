@@ -14,7 +14,7 @@ public final class Milk extends Drink{
     private final Enum whatFirst= WhatFirst.VOID;
     private final Enum aromaProfile = AromaProfile.VOID;
     private final String type = "Milk";
-    private final int imageResourceId = R.id.imageViewMilk;
+    private final int imageResourceId = R.id.image_milk;
 
     private int amountOfMilkFoam ;
     private int amountOfMilk ;

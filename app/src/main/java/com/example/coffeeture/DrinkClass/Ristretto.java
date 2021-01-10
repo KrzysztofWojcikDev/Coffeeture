@@ -12,7 +12,7 @@ public final class Ristretto extends Drink{
     private final int amountOfHotWater = 0;
     private final Enum whatFirst = WhatFirst.VOID;
     private final String type = "Ristretto";
-    private final int imageResourceId = R.id.imageViewRistretto;
+    private final int imageResourceId = R.id.image_ristretto;
 
     private int amountOfCoffee;
     private String name;

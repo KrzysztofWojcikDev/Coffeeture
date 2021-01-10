@@ -13,7 +13,7 @@ public final class Espresso extends Drink {
     private final int amountOfHotWater = 0;
     private final Enum whatFirst = WhatFirst.VOID;
     private final String type = "Espresso";
-    private final int imageResourceId = R.id.imageViewEspresso;
+    private final int imageResourceId = R.id.image_espresso;
 
     private int amountOfCoffee;
     private String name;

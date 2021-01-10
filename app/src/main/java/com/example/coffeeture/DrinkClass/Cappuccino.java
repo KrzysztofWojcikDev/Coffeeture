@@ -10,7 +10,7 @@ public final class Cappuccino extends Drink{
 
     private final int amountOfHotWater = 0;
     private final String type = "Cappuccino";
-    private final int imageResourceId = R.id.imageViewCappuccino;
+    private final int imageResourceId = R.id.image_cappuccino;
 
     private int amountOfMilkFoam = 50;
     private int amountOfMilk = 100;

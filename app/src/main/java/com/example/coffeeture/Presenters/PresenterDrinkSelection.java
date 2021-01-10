@@ -8,7 +8,7 @@ public class PresenterDrinkSelection {
 
 
     public PresenterDrinkSelection(String headLine){
-        this.factoryToolbar = new ViewModelFactoryToolbar(headLine,false,false,true);
+        this.factoryToolbar = new ViewModelFactoryToolbar(headLine,true,false,true);
     }
 
     public ViewModelFactoryToolbar getViewModelFactoryToolbar() { return this.factoryToolbar; }

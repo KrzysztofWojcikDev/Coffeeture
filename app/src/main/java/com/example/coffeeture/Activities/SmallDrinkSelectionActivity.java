@@ -34,8 +34,10 @@ public class SmallDrinkSelectionActivity extends AppCompatActivity implements Vi
 
     Button button_options;
     Button button_rinse;
-    ConstraintLayout button_back;
+    Button button_back;
     TextView headline;
+
+    ConstraintLayout visibility_button_back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,14 +45,16 @@ public class SmallDrinkSelectionActivity extends AppCompatActivity implements Vi
 
         viewModelToolbar = new ViewModelProvider(this,new PresenterDrinkSelection("Choose your drink").getViewModelFactoryToolbar()).get(ViewModelToolbar.class);
 
-        button_ristretto = findViewById(R.id.ristretto_button);
-        button_espresso = findViewById(R.id.espresso_button);
-        button_lungo = findViewById(R.id.lungo_button);
+        button_ristretto = findViewById(R.id.button_ristretto);
+        button_espresso = findViewById(R.id.button_espresso);
+        button_lungo = findViewById(R.id.button_lungo);
 
         button_options = findViewById(R.id.button_options);
         button_rinse = findViewById(R.id.button_rinse);
-        button_back = findViewById(R.id.view_for_back_button);
-        headline = findViewById(R.id.textView_common);
+        button_back = findViewById(R.id.button_back);
+        headline = findViewById(R.id.text_headline);
+
+        visibility_button_back = findViewById(R.id.visibility_button_back);
 
         button_back.setOnClickListener(this);
         button_ristretto.setOnClickListener(this);
@@ -66,9 +70,9 @@ public class SmallDrinkSelectionActivity extends AppCompatActivity implements Vi
 
         viewModelToolbar.getVisibilityForBackButton().observe(this, state -> {
             if(state)
-                button_back.setVisibility(View.VISIBLE);
+                visibility_button_back.setVisibility(View.VISIBLE);
             else
-                button_back.setVisibility(View.INVISIBLE);
+                visibility_button_back.setVisibility(View.INVISIBLE);
         });
 
         viewModelToolbar.getVisibilityForOptionsButton().observe(this, state -> {
@@ -95,19 +99,19 @@ public class SmallDrinkSelectionActivity extends AppCompatActivity implements Vi
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.ristretto_button:
+            case R.id.button_ristretto:
                 Intent intentRistretto = new Intent(SmallDrinkSelectionActivity.this, SettingDrinkActivity.class);
                 Ristretto ristretto = new Ristretto.Builder().build();
                 presenterSettingDrink = new PresenterSettingDrink<>(ristretto);
                 activityStarter(presenterSettingDrink, intentRistretto);
                 break;
-            case R.id.espresso_button:
+            case R.id.button_espresso:
                 Intent intentEspresso = new Intent(SmallDrinkSelectionActivity.this, SettingDrinkActivity.class);
                 Espresso espresso = new Espresso.Builder().build();
                 presenterSettingDrink = new PresenterSettingDrink<>(espresso);
                 activityStarter(presenterSettingDrink, intentEspresso);
                 break;
-            case R.id.lungo_button:
+            case R.id.button_lungo:
                 Intent intentLungo = new Intent(SmallDrinkSelectionActivity.this, SettingDrinkActivity.class);
                 Lungo lungo = new Lungo.Builder().build();
                 presenterSettingDrink = new PresenterSettingDrink<>(lungo);

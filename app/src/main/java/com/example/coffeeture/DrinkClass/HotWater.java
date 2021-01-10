@@ -14,7 +14,7 @@ public final class HotWater extends Drink {
     private final Enum cupsQuantity = CupsQuantity.VOID;
     private final Enum aromaProfile = AromaProfile.VOID;
     private final String type = "Hot Water";
-    private final int imageResourceId = R.id.imageViewHotWater;
+    private final int imageResourceId = R.id.image_hotWater;
 
     private int amountOfHotWater;
     private String name;

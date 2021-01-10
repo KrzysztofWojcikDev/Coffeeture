@@ -7,20 +7,19 @@
     tools:context=".Activities.DrinkSelectionActivity">
 
     <ImageView
-        android:id="@+id/desktop_image1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:scaleType="center"
         app:srcCompat="@drawable/desktop_image" />
 
     <include
-        android:id="@+id/toolbar_main"
+        android:id="@id/toolbar"
         layout="@layout/toolbar" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="420dp"
-        android:layout_below="@+id/toolbar_main">
+        android:layout_below="@id/toolbar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayoutColumnSecond"
@@ -42,7 +41,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <Button
-                    android:id="@+id/second_recipe_button"
+                    android:id="@id/button_coffee"
                     style="@style/Widget.AppCompat.Button"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
@@ -59,7 +58,6 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/image_view_second"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:layout_marginStart="95dp"
@@ -87,7 +85,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <Button
-                    android:id="@+id/fift_recipe_button"
+                    android:id="@id/button_cafeLate"
                     style="@style/Widget.AppCompat.Button"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -104,7 +102,6 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/image_view_fifth"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:layout_marginStart="95dp"
@@ -131,7 +128,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <Button
-                    android:id="@+id/eighth_recipe_button"
+                    android:id="@id/button_favorite"
                     style="@style/Widget.AppCompat.Button"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -148,7 +145,6 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/image_view_eighth"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:layout_marginStart="95dp"
@@ -185,7 +181,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <Button
-                    android:id="@+id/third_recipe_button"
+                    android:id="@id/button_americano"
                     style="@style/Widget.AppCompat.Button"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
@@ -202,7 +198,6 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/image_view_third"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:layout_marginStart="100dp"
@@ -231,7 +226,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <Button
-                    android:id="@+id/sixth_recipe_button"
+                    android:id="@id/button_latte"
                     style="@style/Widget.AppCompat.Button"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -248,7 +243,6 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/image_view_sixth"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:layout_marginStart="100dp"
@@ -276,7 +270,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <Button
-                    android:id="@+id/ninth_recipe_button"
+                    android:id="@id/button_hotWater"
                     style="@style/Widget.AppCompat.Button"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
@@ -293,7 +287,6 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/image_view_ninth"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:layout_marginStart="100dp"
@@ -331,7 +324,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <Button
-                    android:id="@+id/seventh_recipe_button"
+                    android:id="@id/button_milk"
                     style="@style/Widget.AppCompat.Button"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
@@ -348,7 +341,6 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/image_view_seventh"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:layout_marginStart="100dp"
@@ -376,7 +368,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <Button
-                    android:id="@+id/fourth_recipe_button"
+                    android:id="@id/button_cappuccino"
                     style="@style/Widget.AppCompat.Button"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -393,7 +385,6 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/image_view_fourth"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:layout_marginStart="100dp"
@@ -418,10 +409,10 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" >
+                app:layout_constraintTop_toTopOf="parent">
 
                 <Button
-                    android:id="@+id/first_recipe_button"
+                    android:id="@id/button_smallCoffees"
                     style="@style/Widget.AppCompat.Button"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
@@ -439,7 +430,6 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/image_view_first"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:layout_marginStart="100dp"

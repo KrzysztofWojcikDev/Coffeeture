@@ -367,7 +367,7 @@ import java.io.Serializable;
     }
 
     public MutableLiveData<Boolean> getVisionForButtonCreateYourOwn() {
-        return visionForButtonCreateYourOwn;
+        return this.visionForButtonCreateYourOwn;
     }
 
     public LiveData<Boolean> getVisionForButtonAddToFavorite() {
@@ -426,104 +426,3 @@ import java.io.Serializable;
     }
 
 
-
-
-
-
-
-    /*
-
-
-    public static class ViewModelSettingDrinkBuilder{
-      private boolean visionForLinearLayoutAmountOfMilkFoam;
-      private boolean visionForLinearLayoutAmountOfMilk;
-      private boolean visionForLinearLayoutAmountOfCoffee;
-      private boolean visionForLinearLayoutAmountOfHotWater;
-      private boolean visionForConstraintLayoutAroma;
-      private boolean visionForConstraintLayoutTemperature;
-      private boolean visionForConstraintLayoutWhatFirst;
-      private boolean visionForConstraintLayoutQuantity;
-
-      private int contentForEditTextAmountOfMilkFoam ;
-      private int contentForEditTextAmountOfMilk;
-      private int contentForEditTextAmountOfCoffee ;
-      private int contentForEditTextAmountOfHotWater ;
-      /*  public ViewModelSettingBuilder(boolean visionForLinearLayoutAmountOfMilkFoam){
-            this.VISION_FOR_LINEAR_LAYOUT_AMOUNT_OF_MILK_FOAM = visionForLinearLayoutAmountOfMilkFoam;
-
-        }
-
-      public ViewModelSettingDrinkBuilder setAmountOfMilkFoamAttributes(int amountOfMilkFoam){
-          if(amountOfMilkFoam == 0)
-              this.visionForLinearLayoutAmountOfMilkFoam = false;
-          else{
-              this.visionForLinearLayoutAmountOfMilkFoam = true;
-              this.contentForEditTextAmountOfMilkFoam = amountOfMilkFoam;
-          }
-          return this;
-      }
-      public ViewModelSettingDrinkBuilder setAmountOfMilkAttributes(int amountOfMilk){
-          if(amountOfMilk == 0)
-              this.visionForLinearLayoutAmountOfMilk= false;
-          else{
-              this.visionForLinearLayoutAmountOfMilk = true;
-              this.contentForEditTextAmountOfMilk = amountOfMilk;
-          }
-          return this;
-      }
-        public ViewModelSettingDrinkBuilder setAmountOfCoffeeAttributes(int amountOfCoffee){
-            if(amountOfCoffee == 0)
-                this.visionForLinearLayoutAmountOfCoffee = false;
-            else{
-                this.visionForLinearLayoutAmountOfCoffee = true;
-                this.contentForEditTextAmountOfCoffee = amountOfCoffee;
-            }
-
-            return this;
-        }
-        public ViewModelSettingDrinkBuilder setAmountOfHotWaterAttributes(int amountOfHotWater){
-            if(amountOfHotWater == 0)
-                this.visionForLinearLayoutAmountOfHotWater = false;
-            else{
-                this.visionForLinearLayoutAmountOfHotWater = true;
-                this.contentForEditTextAmountOfHotWater = amountOfHotWater;
-            }
-            return this;
-        }
-        public ViewModelSettingDrinkBuilder setAromaAttributes(AromaProfile aroma){
-            this.visionForConstraintLayoutAroma = visionForConstraintLayoutAroma;
-            return this;
-        }
-        public ViewModelSettingDrinkBuilder setTemperatureAttributes (TemperatureOfDrink temperature){
-            this.visionForConstraintLayoutTemperature = visionForConstraintLayoutTemperature;
-            return this;
-        }
-        public ViewModelSettingDrinkBuilder setWhatFirstAttributes (WhatFirst WhatFirst){
-            this.visionForConstraintLayoutWhatFirst = visionForConstraintLayoutWhatFirst;
-            return this;
-        }
-        public ViewModelSettingDrinkBuilder setQuantityAttributes (CupsQuantity cupsQuantity){
-            this.visionForConstraintLayoutQuantity = visionForConstraintLayoutQuantity;
-            return this;
-        }
-      public ViewModelSettingDrink build(){
-          return new ViewModelSettingDrink(this);
-      }
-
-
-    }
-    private ViewModelSettingDrink(ViewModelSettingDrinkBuilder builder){
-        //boolean data
-        this.visionForLinearLayoutAmountOfMilkFoam = new MutableLiveData<>(builder.visionForLinearLayoutAmountOfMilkFoam);
-        this.visionForLinearLayoutAmountOfMilk = new MutableLiveData<>(builder.visionForLinearLayoutAmountOfMilk);
-        this.visionForLinearLayoutAmountOfCoffee = new MutableLiveData<>(builder.visionForLinearLayoutAmountOfCoffee);
-        this.visionForLinearLayoutAmountOfHotWater = new MutableLiveData<>(builder.visionForLinearLayoutAmountOfHotWater);
-        this.visionForConstraintLayoutAroma = new MutableLiveData<>(builder.visionForConstraintLayoutAroma);
-        this.visionForConstraintLayoutTemperature = new MutableLiveData<>(builder.visionForConstraintLayoutTemperature);
-        this.visionForConstraintLayoutWhatFirst = new MutableLiveData<>(builder.visionForConstraintLayoutWhatFirst);
-        this.visionForConstraintLayoutQuantity = new MutableLiveData<>(builder.visionForConstraintLayoutQuantity);
-        //int data
-
-
-    }
-*/
