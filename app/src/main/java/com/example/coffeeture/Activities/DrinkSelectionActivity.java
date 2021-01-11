@@ -116,8 +116,10 @@ public class DrinkSelectionActivity extends AppCompatActivity implements View.On
     }
 
 
-    private void activityStarter(PresenterSettingDrink<? extends Drink> presenterSettingDrink, Intent intent) {
+    private void activityStarter(PresenterSettingDrink<? extends Drink> presenterSettingDrink,String typeOfDrink) {
+        Intent intent = new Intent(DrinkSelectionActivity.this, SettingDrinkActivity.class);
         intent.putExtra("presenter", presenterSettingDrink);
+        intent.putExtra("type",typeOfDrink);
         startActivity(intent);
     }
 
@@ -130,50 +132,43 @@ public class DrinkSelectionActivity extends AppCompatActivity implements View.On
                 startActivity(intentSmallCoffees);
                 break;
             case R.id.button_coffee:
-                Intent intentCoffee = new Intent(DrinkSelectionActivity.this, SettingDrinkActivity.class);
                 Coffee coffee = new Coffee.Builder().build();
                 presenterSettingDrink = new PresenterSettingDrink<>(coffee);
-                activityStarter(presenterSettingDrink, intentCoffee);
+                activityStarter(presenterSettingDrink, coffee.getType());
                 break;
             case R.id.button_americano:
-                Intent intentAmericano = new Intent(DrinkSelectionActivity.this, SettingDrinkActivity.class);
                 Americano americano = new Americano.Builder().build();
                 presenterSettingDrink = new PresenterSettingDrink<>(americano);
-                activityStarter(presenterSettingDrink, intentAmericano);
+                activityStarter(presenterSettingDrink, americano.getType());
                 break;
             case R.id.button_cappuccino:
-                Intent intentCappuccino = new Intent(DrinkSelectionActivity.this, SettingDrinkActivity.class);
                 Cappuccino cappuccino = new Cappuccino.Builder().build();
                 presenterSettingDrink = new PresenterSettingDrink<>(cappuccino);
-                activityStarter(presenterSettingDrink, intentCappuccino);
+                activityStarter(presenterSettingDrink, cappuccino.getType());
                 break;
             case R.id.button_cafeLate:
-                Intent intentCafeLate = new Intent(DrinkSelectionActivity.this, SettingDrinkActivity.class);
                 CafeLate cafeLate = new CafeLate.Builder().build();
                 presenterSettingDrink = new PresenterSettingDrink<>(cafeLate);
-                activityStarter(presenterSettingDrink, intentCafeLate);
+                activityStarter(presenterSettingDrink, cafeLate.getType());
                 break;
             case R.id.button_latte:
-                Intent intentLatte = new Intent(DrinkSelectionActivity.this, SettingDrinkActivity.class);
                 Latte latte = new Latte.Builder().build();
                 presenterSettingDrink = new PresenterSettingDrink<>(latte);
-                activityStarter(presenterSettingDrink, intentLatte);
+                activityStarter(presenterSettingDrink, latte.getType());
                 break;
             case R.id.button_milk:
-                Intent intentMilk = new Intent(DrinkSelectionActivity.this, SettingDrinkActivity.class);
                 Milk milk = new Milk.Builder().build();
                 presenterSettingDrink = new PresenterSettingDrink<>(milk);
-                activityStarter(presenterSettingDrink, intentMilk);
+                activityStarter(presenterSettingDrink, milk.getType());
                 break;
             case R.id.button_favorite:
                 Intent intentFavorite = new Intent(DrinkSelectionActivity.this, SettingDrinkActivity.class);
                 startActivity(intentFavorite);
                 break;
             case R.id.button_hotWater:
-                Intent intentHotWater = new Intent(DrinkSelectionActivity.this, SettingDrinkActivity.class);
                 HotWater hotWater = new HotWater.Builder().build();
                 presenterSettingDrink = new PresenterSettingDrink<>(hotWater);
-                activityStarter(presenterSettingDrink, intentHotWater);
+                activityStarter(presenterSettingDrink, hotWater.getType());
                 break;
             case R.id.button_options:
                 Intent intentOptions = new Intent(DrinkSelectionActivity.this, OptionsActivity.class);

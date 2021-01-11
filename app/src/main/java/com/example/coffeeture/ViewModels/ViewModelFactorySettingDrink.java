@@ -55,7 +55,7 @@ public class ViewModelFactorySettingDrink<T extends Drink> implements ViewModelP
         imageId = in.readInt();
         name = in.readString();
         type = in.readString();
-        aroma =AromaProfile.valueOf(in.readString());
+        aroma = AromaProfile.valueOf(in.readString());
         temperature = TemperatureOfDrink.valueOf(in.readString());
         whatFirst = WhatFirst.valueOf(in.readString());
         cupsQuantity = CupsQuantity.valueOf(in.readString());

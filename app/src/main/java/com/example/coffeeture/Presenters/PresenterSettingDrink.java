@@ -2,11 +2,9 @@ package com.example.coffeeture.Presenters;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
 import com.example.coffeeture.DrinkClass.Drink;
 import com.example.coffeeture.ViewModels.ViewModelFactorySettingDrink;
 import com.example.coffeeture.ViewModels.ViewModelFactoryToolbar;
-
 
 
 public class PresenterSettingDrink <T extends Drink> implements Parcelable {
@@ -61,5 +59,7 @@ public class PresenterSettingDrink <T extends Drink> implements Parcelable {
         dest.writeParcelable(factorySettingDrink,flags);
         dest.writeParcelable(factoryToolbar,flags);
 
+
     }
+
 }

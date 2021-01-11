@@ -91,8 +91,10 @@ public class SmallDrinkSelectionActivity extends AppCompatActivity implements Vi
     }
 
 
-    private void activityStarter(PresenterSettingDrink<? extends Drink> presenterSettingDrink, Intent intent) {
+    private void activityStarter(PresenterSettingDrink<? extends Drink> presenterSettingDrink, String typeOfDrink) {
+        Intent intent = new Intent(SmallDrinkSelectionActivity.this, SettingDrinkActivity.class);
         intent.putExtra("presenter", presenterSettingDrink);
+        intent.putExtra("type",typeOfDrink);
         startActivity(intent);
     }
     @SuppressLint("NonConstantResourceId")
@@ -100,22 +102,19 @@ public class SmallDrinkSelectionActivity extends AppCompatActivity implements Vi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_ristretto:
-                Intent intentRistretto = new Intent(SmallDrinkSelectionActivity.this, SettingDrinkActivity.class);
                 Ristretto ristretto = new Ristretto.Builder().build();
                 presenterSettingDrink = new PresenterSettingDrink<>(ristretto);
-                activityStarter(presenterSettingDrink, intentRistretto);
+                activityStarter(presenterSettingDrink, ristretto.getType());
                 break;
             case R.id.button_espresso:
-                Intent intentEspresso = new Intent(SmallDrinkSelectionActivity.this, SettingDrinkActivity.class);
                 Espresso espresso = new Espresso.Builder().build();
                 presenterSettingDrink = new PresenterSettingDrink<>(espresso);
-                activityStarter(presenterSettingDrink, intentEspresso);
+                activityStarter(presenterSettingDrink, espresso.getType());
                 break;
             case R.id.button_lungo:
-                Intent intentLungo = new Intent(SmallDrinkSelectionActivity.this, SettingDrinkActivity.class);
                 Lungo lungo = new Lungo.Builder().build();
                 presenterSettingDrink = new PresenterSettingDrink<>(lungo);
-                activityStarter(presenterSettingDrink, intentLungo);
+                activityStarter(presenterSettingDrink, lungo.getType());
                 break;
              case R.id.button_back:
                 Intent intentBack = new Intent(SmallDrinkSelectionActivity.this, DrinkSelectionActivity.class);
