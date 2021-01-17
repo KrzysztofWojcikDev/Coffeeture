@@ -16,7 +16,9 @@ import com.example.coffeeture.Enums.CupsQuantity;
 import com.example.coffeeture.Enums.TemperatureOfDrink;
 import com.example.coffeeture.Enums.WhatFirst;
 
-import com.example.coffeeture.Presenters.PresenterAnnouncement;
+import com.example.coffeeture.Presenters.PresenterAnnouncementAdd;
+import com.example.coffeeture.Presenters.PresenterAnnouncementDelete;
+import com.example.coffeeture.Presenters.PresenterAnnouncementUpdate;
 import com.example.coffeeture.Presenters.PresenterImplementingDrink;
 import com.example.coffeeture.R;
 
@@ -28,19 +30,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.example.coffeeture.Presenters.PresenterSettingDrink;
 import com.example.coffeeture.ViewModels.ViewModelSettingDrink;
 import com.example.coffeeture.ViewModels.ViewModelToolbar;
-import com.fasterxml.jackson.core.JsonProcessingException;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 import java.util.Stack;
 
 public class SettingDrinkActivity extends AppCompatActivity implements View.OnClickListener {
@@ -50,7 +46,9 @@ public class SettingDrinkActivity extends AppCompatActivity implements View.OnCl
     ViewModelToolbar viewModelToolbar;
     ViewModelSettingDrink<?> viewModelSettingDrink;
     PresenterSettingDrink<?> presenterSettingDrink;
-    PresenterAnnouncement<?> presenterAnnouncement;
+    PresenterAnnouncementAdd<?> presenterAnnouncementAdd;
+    PresenterAnnouncementDelete<?> presenterAnnouncementDelete;
+    PresenterAnnouncementUpdate<?> presenterAnnouncementUpdate;
     PresenterImplementingDrink<?>presenterImplementingDrink;
 
     Button button_options;
@@ -343,16 +341,6 @@ public class SettingDrinkActivity extends AppCompatActivity implements View.OnCl
 
     }
 
-    private void activityStarter(PresenterAnnouncement presenterAnnouncement,Intent intent){
-
-
-
-    }
-    private void activityStarter(PresenterImplementingDrink presenterImplementingDrink, Intent intent){
-
-
-
-    }
     private AromaProfile aromaUpdater(){
         Stack<AromaProfile> stackAroma = new Stack<>();
         ToggleButton[] buttonTable = {toggleButtonFirstBean, toggleButtonSecondBean, toggleButtonThirdBean};
@@ -442,19 +430,22 @@ public class SettingDrinkActivity extends AppCompatActivity implements View.OnCl
 
                 break;
             case R.id.button_add:
-                presenterAnnouncement = new PresenterAnnouncement<>(creator());
+                presenterAnnouncementAdd = new PresenterAnnouncementAdd<>(creator());
                 Intent intentAdd = new Intent(SettingDrinkActivity.this,AnnouncementActivity.class);
-                activityStarter(presenterAnnouncement,intentAdd);
+
+                //startActivity(intentAdd);
                 break;
             case R.id.button_delete:
-                 presenterAnnouncement = new PresenterAnnouncement<>(creator());
+                 presenterAnnouncementDelete= new PresenterAnnouncementDelete<>(creator());
                  Intent intentDelete = new Intent(SettingDrinkActivity.this,AnnouncementActivity.class);
-                 activityStarter(presenterAnnouncement,intentDelete);
+
+                //startActivity(intentDelete);
                 break;
             case R.id.button_update:
-                 presenterAnnouncement = new PresenterAnnouncement<>(creator());
+                 presenterAnnouncementUpdate = new PresenterAnnouncementUpdate<>(creator());
                  Intent intentUpdate = new Intent(SettingDrinkActivity.this,AnnouncementActivity.class);
-                 activityStarter(presenterAnnouncement,intentUpdate);
+
+                //startActivity(intentUpdate);
                 break;
 
 

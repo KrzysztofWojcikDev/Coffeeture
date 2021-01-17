@@ -17,7 +17,7 @@ public class PresenterSettingDrink <T extends Drink> implements Parcelable {
 
 
     public PresenterSettingDrink(T drink) {
-
+        this.drink = drink;
         factorySettingDrink = new ViewModelFactorySettingDrink<>(drink);
 
         factoryToolbar = new ViewModelFactoryToolbar(drink.getName(),true,false,false);
